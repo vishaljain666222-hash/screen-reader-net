@@ -20,6 +20,11 @@ dependencies:
   # Password hashing for the local v1 auth store
   crypto: ^3.0.5
 
+  # In-app update checking (asks GitHub Releases for the latest version)
+  http: ^1.2.2
+  package_info_plus: ^8.0.0
+  url_launcher: ^6.3.0
+
   # --- Not used in v1, but kept here as the upgrade path for real Google
   # Sign-In once a Firebase project is set up (see README.md). Uncomment
   # when ready:

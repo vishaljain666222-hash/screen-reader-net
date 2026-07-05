@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../data/content_data.dart';
 import '../models/models.dart';
+import '../services/update_service.dart';
 import '../widgets/app_drawer.dart';
 import '../widgets/course_card.dart';
 import 'course_detail_screen.dart';
@@ -15,6 +17,49 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final _searchController = TextEditingController();
   String _query = '';
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _checkForUpdate());
+  }
+
+  Future<void> _checkForUpdate() async {
+    final update = await UpdateService().checkForUpdate();
+    if (!mounted || update == null) return;
+    showDialog(
+      context: context,
+      barrierDismissible: true,
+      builder: (dialogContext) => AlertDialog(
+        title: const Text('Update available'),
+        content: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text('Version ${update.versionName} is ready to install.'),
+              const SizedBox(height: 12),
+              Text(update.releaseNotes),
+            ],
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(),
+            child: const Text('Later'),
+          ),
+          FilledButton(
+            onPressed: () async {
+              Navigator.of(dialogContext).pop();
+              final uri = Uri.parse(update.downloadUrl);
+              await launchUrl(uri, mode: LaunchMode.externalApplication);
+            },
+            child: const Text('Update Now'),
+          ),
+        ],
+      ),
+    );
+  }
 
   static const Map<String, IconData> _icons = {
     'word': Icons.description_outlined,
