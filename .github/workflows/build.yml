@@ -1,0 +1,46 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Get Flutter packages
+        run: flutter pub get
+
+      - name: Scaffold Android platform folder
+        # This project only ships lib/ + pubspec.yaml. `flutter create` on an
+        # existing project just adds the missing platform folders (android/)
+        # without touching lib/ or pubspec.yaml.
+        run: flutter create --platforms=android --org com.screenreaderacademy.app .
+
+      - name: Get Flutter packages again (post-scaffold)
+        run: flutter pub get
+
+      - name: Build release APK
+        run: flutter build apk --release
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenreader-academy-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+          retention-days: 30
