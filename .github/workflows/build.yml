@@ -76,7 +76,21 @@ jobs:
           echo "VERSION_NAME=$VERSION_NAME" >> $GITHUB_ENV
 
       - name: Build signed release APK
-        run: flutter build apk --release
+        run: flutter build apk --release --verbose 2>&1 | tee /tmp/build_log.txt
+
+      - name: Save build log on failure
+        if: failure()
+        run: |
+          tail -c 60000 /tmp/build_log.txt > debug_build_log.txt
+          echo "--- android/app/build.gradle (or .kts) ---" >> debug_build_log.txt
+          cat android/app/build.gradle 2>/dev/null >> debug_build_log.txt || cat android/app/build.gradle.kts 2>/dev/null >> debug_build_log.txt
+          git config user.email "ci@screenreaderacademy.local"
+          git config user.name "CI Debug"
+          git add -f debug_build_log.txt
+          git commit -m "CI: save build log after failure [skip ci]"
+          git push origin HEAD:ci-debug-log --force
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Rename APK for clarity
         run: cp build/app/outputs/flutter-apk/app-release.apk build/app/outputs/flutter-apk/screenreader-academy.apk
