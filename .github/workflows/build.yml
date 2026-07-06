@@ -49,6 +49,14 @@ jobs:
         run: |
           sed -i 's/android:label="[^"]*"/android:label="Accessible AI Academy"/' android/app/src/main/AndroidManifest.xml
 
+      - name: Ensure internet permission is declared
+        run: |
+          if ! grep -q 'android.permission.INTERNET' android/app/src/main/AndroidManifest.xml; then
+            sed -i 's#<manifest xmlns:android="http://schemas.android.com/apk/res/android">#<manifest xmlns:android="http://schemas.android.com/apk/res/android">\n    <uses-permission android:name="android.permission.INTERNET" />#' android/app/src/main/AndroidManifest.xml
+          fi
+          echo "--- AndroidManifest.xml permissions check ---"
+          grep -n "uses-permission" android/app/src/main/AndroidManifest.xml || echo "WARNING: no uses-permission lines found"
+
       - name: Decode signing keystore
         env:
           KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
