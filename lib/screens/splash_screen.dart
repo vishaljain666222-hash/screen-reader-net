@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../services/auth_service.dart';
 
-/// Brief branded splash that decides where to send the user:
-/// straight to Home if already logged in, otherwise to Login.
+/// Brief branded splash that decides where to send the user: onboarding on
+/// first ever run, straight to the main app if already logged in, or to
+/// Login otherwise.
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -20,15 +22,22 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> _decideRoute() async {
     final auth = context.read<AuthService>();
-    // restoreSession() is idempotent and cheap (SharedPreferences read), so
-    // awaiting it here — even though main.dart also kicks it off — guarantees
-    // isLoggedIn reflects any saved session before we route.
-    await Future.wait([
+    final prefs = SharedPreferences.getInstance();
+
+    final results = await Future.wait([
       auth.restoreSession(),
       Future.delayed(const Duration(milliseconds: 700)),
+      prefs,
     ]);
     if (!mounted) return;
-    Navigator.of(context).pushReplacementNamed(auth.isLoggedIn ? '/home' : '/login');
+
+    final seenOnboarding = (results[2] as SharedPreferences).getBool('onboarding_seen_v1') ?? false;
+
+    if (!seenOnboarding) {
+      Navigator.of(context).pushReplacementNamed('/onboarding');
+      return;
+    }
+    Navigator.of(context).pushReplacementNamed(auth.isLoggedIn ? '/main' : '/login');
   }
 
   @override
@@ -41,17 +50,17 @@ class _SplashScreenState extends State<SplashScreen> {
             Semantics(
               label: 'Accessible AI Academy logo',
               image: true,
-              child: const Icon(Icons.record_voice_over, size: 96, color: Color(0xFF1D4ED8)),
+              child: Icon(Icons.school, size: 96, color: Theme.of(context).colorScheme.primary),
             ),
             const SizedBox(height: 16),
+            Text('Accessible AI Academy', style: Theme.of(context).textTheme.headlineSmall),
+            const SizedBox(height: 4),
             Text(
-              'Accessible AI Academy',
-              style: Theme.of(context).textTheme.headlineSmall,
+              'Learn. Grow. Succeed.',
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontStyle: FontStyle.italic),
             ),
             const SizedBox(height: 24),
-            const CircularProgressIndicator(
-              semanticsLabel: 'Loading Accessible AI Academy',
-            ),
+            const CircularProgressIndicator(semanticsLabel: 'Loading Accessible AI Academy'),
           ],
         ),
       ),

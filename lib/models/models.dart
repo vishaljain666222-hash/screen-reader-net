@@ -1,178 +1,103 @@
-/// Core data models used throughout Accessible AI Academy.
+/// Core data models for Accessible AI Academy — a course marketplace app.
 
-/// A single keyboard shortcut entry shown inside a lesson.
-class ShortcutItem {
-  final String keys;
-  final String description;
-
-  const ShortcutItem({required this.keys, required this.description});
-}
-
-/// One screen reader's set of shortcuts + explanation for a given topic
-/// (e.g. "NVDA shortcuts for Microsoft Word").
-class ScreenReaderSection {
-  final String screenReaderName; // NVDA, JAWS, Narrator
-  final String introText;
-  final List<ShortcutItem> shortcuts;
-
-  const ScreenReaderSection({
-    required this.screenReaderName,
-    required this.introText,
-    required this.shortcuts,
-  });
-}
-
-/// A lesson is one readable "page" inside a course, e.g.
-/// "Formatting text in Word" containing sections for NVDA / JAWS / Narrator.
-class Lesson {
+/// One of the 9 course categories used throughout the app (plus the
+/// separate "Bestseller Combo Programs" strip on Home).
+class CourseCategory {
   final String id;
-  final String title;
-  final String summary;
-  final List<ScreenReaderSection> sections;
+  final String name;
 
-  const Lesson({
-    required this.id,
-    required this.title,
-    required this.summary,
-    required this.sections,
-  });
+  const CourseCategory({required this.id, required this.name});
 }
 
-/// Difficulty tiers for quizzes.
-enum QuizDifficulty { basic, intermediate, advanced }
-
-extension QuizDifficultyLabel on QuizDifficulty {
-  String get label {
-    switch (this) {
-      case QuizDifficulty.basic:
-        return 'Basic';
-      case QuizDifficulty.intermediate:
-        return 'Intermediate';
-      case QuizDifficulty.advanced:
-        return 'Advanced';
-    }
-  }
-
-  String get description {
-    switch (this) {
-      case QuizDifficulty.basic:
-        return 'Core shortcuts everyone should know first.';
-      case QuizDifficulty.intermediate:
-        return 'Everyday tasks that mix a few shortcuts together.';
-      case QuizDifficulty.advanced:
-        return 'Trickier settings, edge cases, and power-user shortcuts.';
-    }
-  }
-}
-
-/// Which screen reader a quiz set targets.
-enum ScreenReaderKind { nvda, jaws, narrator }
-
-extension ScreenReaderKindLabel on ScreenReaderKind {
-  String get label {
-    switch (this) {
-      case ScreenReaderKind.nvda:
-        return 'NVDA';
-      case ScreenReaderKind.jaws:
-        return 'JAWS';
-      case ScreenReaderKind.narrator:
-        return 'Narrator';
-    }
-  }
-}
-
-/// A quiz question with four options and one correct answer index.
-class QuizQuestion {
-  final String question;
-  final List<String> options;
-  final int correctIndex;
-  final String explanation;
-
-  const QuizQuestion({
-    required this.question,
-    required this.options,
-    required this.correctIndex,
-    required this.explanation,
-  });
-}
-
-/// One quiz — a specific difficulty level for a specific screen reader
-/// (e.g. "Intermediate JAWS quiz for Excel").
-class QuizSet {
-  final QuizDifficulty difficulty;
-  final ScreenReaderKind screenReader;
-  final List<QuizQuestion> questions;
-
-  const QuizSet({
-    required this.difficulty,
-    required this.screenReader,
-    required this.questions,
-  });
-
-  /// A stable key for progress tracking, e.g. "advanced_jaws".
-  String get key => '${difficulty.name}_${screenReader.name}';
-}
-
-/// A course groups lessons + a full grid of quizzes (difficulty x screen
-/// reader) under one topic (Microsoft Word, Excel, PowerPoint, Chrome, ...).
+/// A single paid course, matching the master plan's minimum data fields:
+/// id, name, category, duration, price, tagline, syllabus, isBestseller,
+/// isComboProgram.
 class Course {
   final String id;
-  final String title;
-  final String description;
-  final String iconLabel; // used for Semantics + simple icon mapping
-  final List<Lesson> lessons;
-  final List<QuizSet> quizSets;
+  final String name;
+  final String categoryId;
+  final String duration;
+  final int priceInInr;
+  final String tagline;
+  final List<String> syllabus;
+  final bool isBestseller;
+  final bool isComboProgram;
 
   const Course({
     required this.id,
-    required this.title,
-    required this.description,
-    required this.iconLabel,
-    required this.lessons,
-    required this.quizSets,
+    required this.name,
+    required this.categoryId,
+    required this.duration,
+    required this.priceInInr,
+    required this.tagline,
+    required this.syllabus,
+    this.isBestseller = false,
+    this.isComboProgram = false,
   });
 
-  QuizSet? quizFor(QuizDifficulty difficulty, ScreenReaderKind reader) {
-    for (final set in quizSets) {
-      if (set.difficulty == difficulty && set.screenReader == reader) return set;
+  String get formattedPrice {
+    // Simple thousands-separator formatting for INR, e.g. 9999 -> "9,999".
+    final s = priceInInr.toString();
+    final buffer = StringBuffer();
+    for (var i = 0; i < s.length; i++) {
+      final posFromEnd = s.length - i;
+      buffer.write(s[i]);
+      if (posFromEnd > 1 && posFromEnd % 2 == 1 && posFromEnd != s.length) {
+        // Indian digit grouping: last 3 digits, then groups of 2.
+      }
     }
-    return null;
+    // Use a straightforward Indian-style grouping implementation instead:
+    return _indianGrouping(priceInInr);
+  }
+
+  static String _indianGrouping(int value) {
+    final str = value.toString();
+    if (str.length <= 3) return str;
+    final lastThree = str.substring(str.length - 3);
+    var rest = str.substring(0, str.length - 3);
+    final groups = <String>[];
+    while (rest.length > 2) {
+      groups.insert(0, rest.substring(rest.length - 2));
+      rest = rest.substring(0, rest.length - 2);
+    }
+    if (rest.isNotEmpty) groups.insert(0, rest);
+    return '${groups.join(',')},$lastThree';
   }
 }
 
-/// Stores a user's best quiz result for one course + difficulty + screen
-/// reader combination, persisted locally.
-class QuizAttempt {
+/// A logged "Buy Now" tap, kept locally for demand tracking until a real
+/// payment gateway is wired in (see PaymentGatewayService).
+class BuyNowLogEntry {
   final String courseId;
-  final String quizKey; // e.g. "advanced_jaws"
-  final int score;
-  final int total;
-  final DateTime completedAt;
+  final DateTime timestamp;
 
-  const QuizAttempt({
-    required this.courseId,
-    required this.quizKey,
-    required this.score,
-    required this.total,
-    required this.completedAt,
-  });
-
-  /// The map key used for storage/lookup: unique per course + quiz.
-  String get storageKey => '${courseId}__$quizKey';
+  const BuyNowLogEntry({required this.courseId, required this.timestamp});
 
   Map<String, dynamic> toJson() => {
         'courseId': courseId,
-        'quizKey': quizKey,
-        'score': score,
-        'total': total,
-        'completedAt': completedAt.toIso8601String(),
+        'timestamp': timestamp.toIso8601String(),
       };
 
-  factory QuizAttempt.fromJson(Map<String, dynamic> json) => QuizAttempt(
+  factory BuyNowLogEntry.fromJson(Map<String, dynamic> json) => BuyNowLogEntry(
         courseId: json['courseId'],
-        quizKey: json['quizKey'] ?? '',
-        score: json['score'],
-        total: json['total'],
-        completedAt: DateTime.parse(json['completedAt']),
+        timestamp: DateTime.parse(json['timestamp']),
+      );
+}
+
+/// A learner's request to be notified once real payments go live.
+class NotifyMeRequest {
+  final String courseId;
+  final DateTime requestedAt;
+
+  const NotifyMeRequest({required this.courseId, required this.requestedAt});
+
+  Map<String, dynamic> toJson() => {
+        'courseId': courseId,
+        'requestedAt': requestedAt.toIso8601String(),
+      };
+
+  factory NotifyMeRequest.fromJson(Map<String, dynamic> json) => NotifyMeRequest(
+        courseId: json['courseId'],
+        requestedAt: DateTime.parse(json['requestedAt']),
       );
 }

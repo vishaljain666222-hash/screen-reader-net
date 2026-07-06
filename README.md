@@ -1,161 +1,73 @@
-# Screen Reader Academy
+# Accessible AI Academy
 
-An accessible Android app for learning **NVDA, JAWS, and Narrator** — with
-text-based courses for Microsoft Word, Excel, PowerPoint, and Google Chrome,
-each ending in a quiz.
+A Flutter course-marketplace app for Accessible Knowledge Hub — browse
+51 real courses across 9 categories, view full syllabi, and tap Buy Now.
+Online payments aren't live yet, so Buy Now currently leads to a polished
+"Payment Coming Soon" screen with Notify Me / Add to Wishlist actions.
 
-This is a complete Flutter source project. It is **not yet a compiled APK** —
-this chat environment doesn't have the Android/Flutter SDK to build one. The
-steps below take you from this code to a real, installable app.
+This app builds and ships via GitHub Actions — see below for how updates
+get released. Existing installs get an in-app "Update available" popup
+automatically; nothing about that mechanism changed in this rebuild.
 
-## What's included
+## What's in this version
+
+- **Splash → Onboarding (3 slides, first run only) → Login/Sign-up → Main app**
+- **Bottom navigation**: Home, Categories, Wishlist, Profile
+- **Home**: search bar, 9-category grid, Bestseller Combo Programs strip, "Payments Coming Soon" banner
+- **Category Listing** → **Course Detail** (full syllabus, duration, price, sticky Buy Now, Share, Wishlist heart)
+- **Buy Now → Payment Coming Soon screen** (Notify Me / Add to Wishlist / contact-us fallback)
+- **Search** across all 51 courses by name, tagline, or category
+- **Wishlist / My Courses**, **Profile** (with Accessibility Settings + About/Contact/Support)
+- **Accessibility Settings**: text-size slider (up to 200%), High Contrast Mode, screen-reader hints toggle
+- **PaymentGatewayService**: a clearly stubbed interface (`initiatePayment` / `verifyPayment` / `refund`) ready for a real provider (Razorpay/PayU/Stripe/Google Play Billing) later, with every Buy Now tap logged locally for demand tracking
+- **In-app update checker** (unchanged): checks GitHub Releases on open, plus a manual "Check for Updates" button in About
+
+## Course catalog
+
+All 51 courses live in `lib/data/catalog_data.dart` as plain Dart data —
+id, name, category, duration, price, tagline, and full syllabus per
+course. Nothing is placeholder/sample content; it's transcribed directly
+from the Accessible AI Academy Master Plan.
+
+To add, remove, or edit a course, edit that file directly — no other code
+needs to change. Categories are defined in `CatalogData.categories` at the
+top of the same file.
+
+## Releasing an update (keeps existing users' auto-update working)
+
+This repo's `.github/workflows/build.yml` is triggered manually
+(workflow_dispatch) with three inputs: `version_name` (e.g. `2.0.0`),
+`version_code` (must increase each time), and `release_notes`. It:
+
+1. Scaffolds the Android platform folder fresh via `flutter create`
+2. Signs the release APK with the persistent keystore (stored as repo secrets)
+3. Sets the app's display name and ensures the internet permission is present
+4. Publishes a GitHub Release tagged `vX.Y.Z` with the signed APK attached
+
+Existing users' installed app checks `GET /repos/.../releases/latest` on
+open (see `lib/services/update_service.dart`) and shows an "Update
+available" popup pointing at that release's APK — so as long as each
+release uses a higher `version_name` than the last, nobody needs to
+manually reinstall.
+
+## Local development
 
 ```
-lib/
-  models/models.dart          - Course, Lesson, Shortcut, Quiz data classes
-  data/content_data.dart      - All course content (Word, Excel, PowerPoint, Chrome)
-  services/auth_service.dart      - v1 on-device email/password accounts
-  services/progress_service.dart  - Local quiz-score tracking (SharedPreferences)
-  screens/
-    splash_screen.dart
-    auth/login_screen.dart, signup_screen.dart
-    home_screen.dart          - search bar + course shortcuts
-    course_detail_screen.dart - lesson list + best score + quiz entry
-    lesson_screen.dart         - NVDA / JAWS / Narrator tabs with shortcuts
-    quiz_screen.dart, quiz_result_screen.dart
-    about_screen.dart, contact_screen.dart
-  widgets/
-    app_drawer.dart   - toggle nav: Home, About, Contact Us, Log Out
-    course_card.dart
-  main.dart
-pubspec.yaml
-```
-
-### Features already built
-- **Mandatory registration**: users can't reach Home without signing up or
-  logging in. **v1 uses a simple on-device account system** (email/password
-  stored, hashed, in SharedPreferences) so the app works immediately with
-  zero backend setup. "Continue with Google" is present in the UI and shows
-  a "coming soon" message — see "Adding real Google Sign-In" below to wire
-  up the real thing later.
-- **Toggle navigation drawer** with Home / About / Contact Us / Log Out.
-- **Home screen** with a live search bar that filters courses as you type,
-  plus shortcut cards for Word, Excel, PowerPoint, and Chrome.
-- **Text-based lessons**, split per screen reader (NVDA / JAWS / Narrator)
-  as separate tabs, each with an explanation plus a shortcut-key list.
-- **End-of-course quizzes** (multiple choice, one question at a time, with
-  immediate feedback) that save your best score locally so you can track
-  progress over time.
-- **Accessibility built in throughout**: `Semantics` labels on cards and
-  shortcut tiles, live regions for feedback/errors so screen readers
-  announce them automatically, 48dp minimum touch targets, and use of
-  native accessible widgets (`RadioListTile`, `TextFormField`, `Drawer`)
-  rather than custom-drawn controls wherever possible.
-
-## Fastest path: build the APK with GitHub Actions (no local install needed)
-
-This repo includes `.github/workflows/build.yml`, which builds a release
-APK on GitHub's servers every time you push. To use it:
-
-1. Push this project to a GitHub repository (empty repo, then upload/push
-   all these files, including the hidden `.github` folder).
-2. Go to the repo's **Actions** tab — a "Build Android APK" run should
-   start automatically (or click **Run workflow** if not).
-3. Once it finishes (a few minutes), open the run and download the
-   **screenreader-academy-apk** artifact — that's your `app-release.apk`.
-4. Transfer it to an Android phone (email, Drive, USB) and tap to install
-   (you'll need to allow "install unknown apps" for whichever app you used
-   to open it — Android will prompt you the first time).
-
-No Flutter/Android SDK install needed on your own machine for this path.
-
-## What you still need to do (only if building locally instead)
-
-### 1. Install Flutter
-Follow https://docs.flutter.dev/get-started/install for your OS, then run:
-```
-flutter doctor
-```
-and resolve anything it flags (Android SDK, licenses, etc).
-
-### 2. Create the platform folders
-This project currently only has the `lib/` (Dart) source and `pubspec.yaml`.
-Generate the Android/iOS scaffolding with:
-```
-flutter create --org com.yourcompany --project-name screenreader_academy .
-```
-Run this **inside** the `screenreader_academy` folder — it will add the
-missing `android/`, `ios/`, etc. folders without touching your `lib/` code.
-
-### 3. Get dependencies
-```
+flutter create --platforms=android --org com.screenreaderacademy.app .
 flutter pub get
-```
-
-### 4. (Optional, v2) Adding real Google Sign-In via Firebase
-v1 doesn't need this — accounts already work on-device. Do this later, when
-you want real "Continue with Google":
-1. Create a project at https://console.firebase.google.com
-2. Add an Android app to it using the package name you chose in step 2
-   (`com.yourcompany.screenreader_academy`), download `google-services.json`,
-   and place it in `android/app/`.
-3. In the Firebase console, go to **Authentication → Sign-in method** and
-   enable **Email/Password** and **Google**.
-4. Install the FlutterFire CLI and run configuration:
-   ```
-   dart pub global activate flutterfire_cli
-   flutterfire configure
-   ```
-   This generates `lib/firebase_options.dart`. Then uncomment the two
-   Firebase lines at the top of `lib/main.dart`:
-   ```dart
-   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-   ```
-5. For Google Sign-In on Android specifically, add your app's SHA-1
-   (debug and release) fingerprints in the Firebase console under
-   Project Settings → Your apps, or Google Sign-In will fail silently.
-
-### 5. Run it
-```
 flutter run
 ```
 
-### 6. Build a release APK
-```
-flutter build apk --release
-```
-The APK will be at `build/app/outputs/flutter-apk/app-release.apk`.
-For the Play Store, build an `.aab` instead:
-```
-flutter build appbundle --release
-```
+(The `android/` and `ios/` folders aren't committed — the CI workflow
+regenerates them fresh on every build, per Flutter's own recommended
+approach for retrofitting platforms onto an existing project.)
 
-## Testing accessibility
-- **On device**: turn on TalkBack (Settings → Accessibility → TalkBack) and
-  swipe through every screen — drawer, search, course cards, lesson tabs,
-  shortcut list, and the quiz — confirming everything is reachable and
-  announced sensibly.
-- Check color contrast and touch target sizes with Android's
-  **Accessibility Scanner** app.
-- The quiz result and error messages use `Semantics(liveRegion: true)` so
-  they're announced automatically — verify this with TalkBack rather than
-  assuming it from the code.
+## Not yet implemented (see Master Plan Section 9 — Future Roadmap)
 
-## Extending the content
-All course text lives in `lib/data/content_data.dart` as plain Dart objects
-— no UI code changes are needed to add a new course, lesson, or quiz
-question. To add a 5th course (say, Outlook), copy the shape of `_wordCourse`
-and add it to the `courses` list at the top of the file.
-
-## Extending progress tracking
-`ProgressService` currently stores best quiz scores on-device only
-(`shared_preferences`). If you want scores synced across devices, swap its
-`load()`/`recordAttempt()` bodies to read/write a `users/{uid}/progress`
-collection in Cloud Firestore (already added as a dependency in
-`pubspec.yaml`) instead of `SharedPreferences`.
-
-## Contact form
-`contact_screen.dart` currently just shows a "message sent" confirmation
-locally — wire the `_submit()` method to a real backend (e.g. a Cloud
-Function that emails your support inbox, or a Firestore `contact_messages`
-collection) before shipping.
+- Real payment gateway integration behind `PaymentGatewayService`
+- Push notifications for the Notify Me list once payments go live
+- Certificates of completion / learning-progress tracker
+- Hindi and other regional language support
+- Google Sign-In (currently a "coming soon" placeholder — see
+  `lib/services/auth_service.dart` for the local-account v1 implementation
+  and the commented-out Firebase upgrade path)

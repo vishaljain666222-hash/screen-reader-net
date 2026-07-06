@@ -1,5 +1,5 @@
 name: screenreader_academy
-description: "Accessible AI Academy - learn NVDA, JAWS and Narrator screen readers."
+description: "Accessible AI Academy - browse, learn about, and purchase professional skill-development courses."
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -14,10 +14,11 @@ dependencies:
   # State management
   provider: ^6.1.2
 
-  # Local persistence (v1 on-device accounts, quiz scores, progress)
+  # Local persistence (on-device accounts, wishlist, accessibility settings,
+  # buy-now/notify-me demand tracking)
   shared_preferences: ^2.3.2
 
-  # Password hashing for the local v1 auth store
+  # Password hashing for the local auth store
   crypto: ^3.0.5
 
   # In-app update checking (asks GitHub Releases for the latest version)
@@ -25,10 +26,10 @@ dependencies:
   package_info_plus: ^8.0.0
   url_launcher: ^6.3.0
 
-  # Quiz sound effects (correct / wrong / submit click)
-  audioplayers: ^6.1.0
+  # Share button on the Course Detail screen
+  share_plus: ^10.1.2
 
-  # --- Not used in v1, but kept here as the upgrade path for real Google
+  # --- Not used yet, but kept here as the upgrade path for real Google
   # Sign-In once a Firebase project is set up (see README.md). Uncomment
   # when ready:
   # firebase_core: ^3.6.0
@@ -43,5 +44,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  assets:
-    - assets/sounds/

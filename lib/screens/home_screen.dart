@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../data/content_data.dart';
+import '../data/catalog_data.dart';
 import '../models/models.dart';
 import '../services/update_service.dart';
-import '../widgets/app_drawer.dart';
 import '../widgets/course_card.dart';
+import 'category_listing_screen.dart';
 import 'course_detail_screen.dart';
+import 'search_results_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,7 +17,18 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final _searchController = TextEditingController();
-  String _query = '';
+
+  static const Map<String, IconData> _categoryIcons = {
+    'combo': Icons.workspace_premium_outlined,
+    'office': Icons.description_outlined,
+    'marketing': Icons.campaign_outlined,
+    'ai': Icons.auto_awesome_outlined,
+    'finance': Icons.show_chart,
+    'business': Icons.business_center_outlined,
+    'accounting': Icons.receipt_long_outlined,
+    'communication': Icons.record_voice_over_outlined,
+    'accessibility': Icons.accessibility_new,
+  };
 
   @override
   void initState() {
@@ -29,7 +41,6 @@ class _HomeScreenState extends State<HomeScreen> {
     if (!mounted || update == null) return;
     showDialog(
       context: context,
-      barrierDismissible: true,
       builder: (dialogContext) => AlertDialog(
         title: const Text('Update available'),
         content: SingleChildScrollView(
@@ -44,15 +55,11 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         actions: [
-          TextButton(
-            onPressed: () => Navigator.of(dialogContext).pop(),
-            child: const Text('Later'),
-          ),
+          TextButton(onPressed: () => Navigator.of(dialogContext).pop(), child: const Text('Later')),
           FilledButton(
             onPressed: () async {
               Navigator.of(dialogContext).pop();
-              final uri = Uri.parse(update.downloadUrl);
-              await launchUrl(uri, mode: LaunchMode.externalApplication);
+              await launchUrl(Uri.parse(update.downloadUrl), mode: LaunchMode.externalApplication);
             },
             child: const Text('Update Now'),
           ),
@@ -61,107 +68,148 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  static const Map<String, IconData> _icons = {
-    'word': Icons.description_outlined,
-    'excel': Icons.grid_on_outlined,
-    'powerpoint': Icons.slideshow_outlined,
-    'chrome': Icons.public,
-  };
-
-  List<Course> get _filteredCourses {
-    if (_query.trim().isEmpty) return ContentData.courses;
-    final q = _query.toLowerCase();
-    return ContentData.courses.where((c) {
-      return c.title.toLowerCase().contains(q) ||
-          c.description.toLowerCase().contains(q) ||
-          c.lessons.any((l) => l.title.toLowerCase().contains(q));
-    }).toList();
-  }
-
-  @override
-  void dispose() {
-    _searchController.dispose();
-    super.dispose();
-  }
-
-  void _openCourse(Course course) {
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => CourseDetailScreen(course: course)),
-    );
+  void _openSearch(String query) {
+    if (query.trim().isEmpty) return;
+    Navigator.of(context).push(MaterialPageRoute(builder: (_) => SearchResultsScreen(initialQuery: query)));
   }
 
   @override
   Widget build(BuildContext context) {
-    final courses = _filteredCourses;
+    final bestsellers = CatalogData.bestsellers;
 
     return Scaffold(
       appBar: AppBar(title: const Text('Accessible AI Academy')),
-      drawer: const AppDrawer(),
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            Text(
-              'What would you like to learn today?',
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            const SizedBox(height: 12),
+            // ---- Search bar ----
             Semantics(
               textField: true,
-              label: 'Search courses',
-              hint: 'Type an app name, like Word or Chrome, to filter courses',
+              label: 'Search all courses',
+              hint: 'Type a course name or category and press search',
               child: TextField(
                 controller: _searchController,
-                onChanged: (value) => setState(() => _query = value),
+                textInputAction: TextInputAction.search,
+                onSubmitted: _openSearch,
                 decoration: InputDecoration(
-                  hintText: 'Search courses (e.g. Word, Excel, Chrome)',
+                  hintText: 'Search 51 courses (e.g. Excel, AI, GST)',
                   prefixIcon: const Icon(Icons.search),
                   border: const OutlineInputBorder(),
-                  suffixIcon: _query.isEmpty
-                      ? null
-                      : IconButton(
-                          icon: const Icon(Icons.clear),
-                          tooltip: 'Clear search',
-                          onPressed: () {
-                            _searchController.clear();
-                            setState(() => _query = '');
-                          },
+                  suffixIcon: IconButton(
+                    icon: const Icon(Icons.arrow_forward),
+                    tooltip: 'Search',
+                    onPressed: () => _openSearch(_searchController.text),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+
+            // ---- Payments coming soon banner ----
+            Semantics(
+              label:
+                  'Online payments are coming soon. You can still browse every course, add it to your wishlist, and ask to be notified.',
+              child: Container(
+                padding: const EdgeInsets.all(14),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.secondaryContainer,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: ExcludeSemantics(
+                  child: Row(
+                    children: [
+                      Icon(Icons.rocket_launch_outlined, color: Theme.of(context).colorScheme.onSecondaryContainer),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Text(
+                          'Online Payments Coming Soon — browse freely, wishlist your favourites!',
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.onSecondaryContainer,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
             const SizedBox(height: 24),
-            Text(
-              'Courses',
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
-            const SizedBox(height: 4),
-            Text(
-              'Text-based lessons with keyboard shortcuts for NVDA, JAWS, and Narrator, finishing with a short quiz.',
-              style: Theme.of(context).textTheme.bodySmall,
-            ),
-            const SizedBox(height: 16),
-            if (courses.isEmpty)
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 32),
-                child: Center(
-                  child: Text(
-                    'No courses match "$_query". Try a different search term.',
-                    textAlign: TextAlign.center,
+
+            // ---- Category grid ----
+            Text('Browse Categories', style: Theme.of(context).textTheme.titleLarge),
+            const SizedBox(height: 12),
+            GridView.count(
+              crossAxisCount: 2,
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              crossAxisSpacing: 12,
+              mainAxisSpacing: 12,
+              childAspectRatio: 1.5,
+              children: CatalogData.categories.map((category) {
+                final count = CatalogData.byCategory(category.id).length;
+                return Semantics(
+                  button: true,
+                  label: '${category.name}, $count courses',
+                  child: Card(
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(12),
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(builder: (_) => CategoryListingScreen(category: category)),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: ExcludeSemantics(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(_categoryIcons[category.id] ?? Icons.school_outlined,
+                                  size: 28, color: Theme.of(context).colorScheme.primary),
+                              const SizedBox(height: 8),
+                              Text(
+                                category.name,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(fontWeight: FontWeight.w600),
+                              ),
+                              const SizedBox(height: 2),
+                              Text('$count courses', style: Theme.of(context).textTheme.bodySmall),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-              )
-            else
-              ...courses.map(
-                (course) => Padding(
-                  padding: const EdgeInsets.only(bottom: 12),
-                  child: CourseCard(
-                    course: course,
-                    icon: _icons[course.id] ?? Icons.school_outlined,
-                    onTap: () => _openCourse(course),
-                  ),
-                ),
+                );
+              }).toList(),
+            ),
+            const SizedBox(height: 28),
+
+            // ---- Bestseller combo strip ----
+            Text('Bestseller Combo Programs', style: Theme.of(context).textTheme.titleLarge),
+            const SizedBox(height: 12),
+            SizedBox(
+              height: 210,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemCount: bestsellers.length,
+                separatorBuilder: (_, __) => const SizedBox(width: 12),
+                itemBuilder: (context, index) {
+                  final course = bestsellers[index];
+                  return SizedBox(
+                    width: 260,
+                    child: CourseCard(
+                      course: course,
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(builder: (_) => CourseDetailScreen(course: course)),
+                      ),
+                    ),
+                  );
+                },
               ),
+            ),
           ],
         ),
       ),

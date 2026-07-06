@@ -79,16 +79,32 @@ class _AboutScreenState extends State<AboutScreen> {
             Text('About Accessible AI Academy', style: Theme.of(context).textTheme.headlineSmall),
             const SizedBox(height: 16),
             const Text(
-              'Accessible AI Academy is a free learning app that helps people who are blind or have '
-              'low vision — and the people who support them — learn to use screen readers with confidence.\n\n'
-              'Every course covers the same everyday tasks (using Word, Excel, PowerPoint, and Chrome) but explains '
-              'them separately for NVDA, JAWS, and Narrator, since each screen reader has its own commands and behaviour.\n\n'
-              'Lessons are written to be read directly by your screen reader — no images or complex layouts get in '
-              'the way of the content. Each course has Basic, Intermediate, and Advanced quizzes for every screen reader '
-              'so you can check what you\'ve learned at your own pace.',
+              'Accessible AI Academy, by Accessible Knowledge Hub, is where students, professionals, and business '
+              'owners come to upskill — with 51 practical courses across Microsoft Office, AI, Digital Marketing, '
+              'Finance, Business Management, Accounting, Communication, and dedicated Accessibility courses for '
+              'visually impaired learners.\n\n'
+              'Online payments are being finished right now — until then, browse every course freely, save your '
+              'favourites to your wishlist, and tap "Notify Me" on any course to hear the moment checkout opens.\n\n'
+              'This app is built to WCAG 2.1 AA accessibility standards, with full screen-reader support, '
+              'high-contrast mode, and adjustable text size, because learning should never have barriers.',
               style: TextStyle(fontSize: 16, height: 1.5),
             ),
             const SizedBox(height: 24),
+            Text('Contact & Support', style: Theme.of(context).textTheme.titleLarge),
+            const SizedBox(height: 8),
+            const ListTile(
+              contentPadding: EdgeInsets.zero,
+              leading: Icon(Icons.email_outlined),
+              title: Text('Email'),
+              subtitle: Text('support@accessibleknowledgehub.example'),
+            ),
+            const ListTile(
+              contentPadding: EdgeInsets.zero,
+              leading: Icon(Icons.phone_outlined),
+              title: Text('Phone / WhatsApp'),
+              subtitle: Text('+91 90000 00000'),
+            ),
+            const SizedBox(height: 16),
             Text('Version $_version', style: Theme.of(context).textTheme.bodySmall),
             const SizedBox(height: 12),
             OutlinedButton.icon(
