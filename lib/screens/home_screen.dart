@@ -95,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final courses = _filteredCourses;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Screen Reader Academy')),
+      appBar: AppBar(title: const Text('Accessible AI Academy')),
       drawer: const AppDrawer(),
       body: SafeArea(
         child: ListView(

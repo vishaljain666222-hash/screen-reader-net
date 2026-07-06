@@ -36,7 +36,7 @@ class ScreenReaderAcademyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ProgressService()..load()),
       ],
       child: MaterialApp(
-        title: 'Screen Reader Academy',
+        title: 'Accessible AI Academy',
         debugShowCheckedModeBanner: false,
         // A high-contrast, large-touch-target theme benefits low-vision
         // users as well as screen reader users navigating visually.

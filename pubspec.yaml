@@ -1,5 +1,5 @@
 name: screenreader_academy
-description: "Learn NVDA, JAWS and Narrator - an accessible screen reader training app."
+description: "Accessible AI Academy - learn NVDA, JAWS and Narrator screen readers."
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -25,6 +25,9 @@ dependencies:
   package_info_plus: ^8.0.0
   url_launcher: ^6.3.0
 
+  # Quiz sound effects (correct / wrong / submit click)
+  audioplayers: ^6.1.0
+
   # --- Not used in v1, but kept here as the upgrade path for real Google
   # Sign-In once a Firebase project is set up (see README.md). Uncomment
   # when ready:
@@ -40,3 +43,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/sounds/

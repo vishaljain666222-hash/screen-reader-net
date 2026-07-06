@@ -11,10 +11,10 @@ class AboutScreen extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.all(20),
           children: [
-            Text('About Screen Reader Academy', style: Theme.of(context).textTheme.headlineSmall),
+            Text('About Accessible AI Academy', style: Theme.of(context).textTheme.headlineSmall),
             const SizedBox(height: 16),
             const Text(
-              'Screen Reader Academy is a free learning app that helps people who are blind or have '
+              'Accessible AI Academy is a free learning app that helps people who are blind or have '
               'low vision — and the people who support them — learn to use screen readers with confidence.\n\n'
               'Every course covers the same everyday tasks (using Word, Excel, PowerPoint, and Chrome) but explains '
               'them separately for NVDA, JAWS, and Narrator, since each screen reader has its own commands and behaviour.\n\n'

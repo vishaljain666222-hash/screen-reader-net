@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../models/models.dart';
 import '../services/progress_service.dart';
+import '../services/sound_service.dart';
 import 'quiz_result_screen.dart';
 
-/// Presents the course's quiz one question at a time. Using RadioListTile
-/// (rather than a custom widget) gives free, correct screen reader semantics
-/// (role=radio, checked state, group announcement) on both Android
-/// accessibility services and desktop screen readers testing the Flutter web build.
+/// Presents one specific quiz (a difficulty + screen reader combination)
+/// one question at a time, with sound effects on submit / correct / wrong.
 class QuizScreen extends StatefulWidget {
   final Course course;
+  final QuizSet quizSet;
 
-  const QuizScreen({super.key, required this.course});
+  const QuizScreen({super.key, required this.course, required this.quizSet});
 
   @override
   State<QuizScreen> createState() => _QuizScreenState();
@@ -23,17 +23,23 @@ class _QuizScreenState extends State<QuizScreen> {
   bool _showFeedback = false;
   final List<int?> _answers = [];
 
-  QuizQuestion get _question => widget.course.quiz[_currentIndex];
-  bool get _isLastQuestion => _currentIndex == widget.course.quiz.length - 1;
+  QuizQuestion get _question => widget.quizSet.questions[_currentIndex];
+  bool get _isLastQuestion => _currentIndex == widget.quizSet.questions.length - 1;
 
   void _selectOption(int index) {
-    if (_showFeedback) return; // lock in the answer once feedback is shown
+    if (_showFeedback) return;
     setState(() => _selectedOption = index);
   }
 
-  void _confirmAnswer() {
+  Future<void> _confirmAnswer() async {
     if (_selectedOption == null) return;
+    await SoundService.playClick();
     setState(() => _showFeedback = true);
+    if (_selectedOption == _question.correctIndex) {
+      await SoundService.playCorrect();
+    } else {
+      await SoundService.playWrong();
+    }
   }
 
   Future<void> _nextQuestion() async {
@@ -42,15 +48,21 @@ class _QuizScreenState extends State<QuizScreen> {
       final score = _computeScore();
       final attempt = QuizAttempt(
         courseId: widget.course.id,
+        quizKey: widget.quizSet.key,
         score: score,
-        total: widget.course.quiz.length,
+        total: widget.quizSet.questions.length,
         completedAt: DateTime.now(),
       );
       await context.read<ProgressService>().recordAttempt(attempt);
       if (!mounted) return;
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (_) => QuizResultScreen(course: widget.course, score: score, total: widget.course.quiz.length),
+          builder: (_) => QuizResultScreen(
+            course: widget.course,
+            quizSet: widget.quizSet,
+            score: score,
+            total: widget.quizSet.questions.length,
+          ),
         ),
       );
       return;
@@ -65,17 +77,19 @@ class _QuizScreenState extends State<QuizScreen> {
   int _computeScore() {
     var score = 0;
     for (var i = 0; i < _answers.length; i++) {
-      if (_answers[i] == widget.course.quiz[i].correctIndex) score++;
+      if (_answers[i] == widget.quizSet.questions[i].correctIndex) score++;
     }
     return score;
   }
 
   @override
   Widget build(BuildContext context) {
-    final total = widget.course.quiz.length;
+    final total = widget.quizSet.questions.length;
+    final title =
+        '${widget.course.title} · ${widget.quizSet.difficulty.label} · ${widget.quizSet.screenReader.label}';
 
     return Scaffold(
-      appBar: AppBar(title: Text('${widget.course.title} Quiz')),
+      appBar: AppBar(title: Text(title, style: const TextStyle(fontSize: 16))),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),

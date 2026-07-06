@@ -26,7 +26,7 @@ class AppDrawer extends StatelessWidget {
                   const Icon(Icons.record_voice_over, color: Colors.white, size: 36),
                   const SizedBox(height: 8),
                   Text(
-                    user != null && user.name.isNotEmpty ? 'Hi, ${user.name}' : 'Screen Reader Academy',
+                    user != null && user.name.isNotEmpty ? 'Hi, ${user.name}' : 'Accessible AI Academy',
                     style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   if (user != null)

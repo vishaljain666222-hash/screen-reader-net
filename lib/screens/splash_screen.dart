@@ -39,18 +39,18 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Semantics(
-              label: 'Screen Reader Academy logo',
+              label: 'Accessible AI Academy logo',
               image: true,
               child: const Icon(Icons.record_voice_over, size: 96, color: Color(0xFF1D4ED8)),
             ),
             const SizedBox(height: 16),
             Text(
-              'Screen Reader Academy',
+              'Accessible AI Academy',
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             const SizedBox(height: 24),
             const CircularProgressIndicator(
-              semanticsLabel: 'Loading Screen Reader Academy',
+              semanticsLabel: 'Loading Accessible AI Academy',
             ),
           ],
         ),

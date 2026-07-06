@@ -1,8 +1,6 @@
 name: Build & Release Android APK
 
 on:
-  push:
-    branches: [ main, master ]
   workflow_dispatch:
     inputs:
       version_name:
@@ -46,6 +44,10 @@ jobs:
 
       - name: Get Flutter packages again (post-scaffold)
         run: flutter pub get
+
+      - name: Set Android app display name
+        run: |
+          sed -i 's/android:label="[^"]*"/android:label="Accessible AI Academy"/' android/app/src/main/AndroidManifest.xml
 
       - name: Decode signing keystore
         env:

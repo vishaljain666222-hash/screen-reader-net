@@ -3,14 +3,10 @@ import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/models.dart';
 
-/// Tracks the user's best quiz score per course, persisted on-device.
-///
-/// This keeps the "track your performance" requirement working even
-/// before a full backend/Firestore sync is wired up. Swapping this for
-/// a Firestore-backed implementation later only requires changing the
-/// body of these two methods.
+/// Tracks the user's best quiz score per course + difficulty + screen
+/// reader combination, persisted on-device.
 class ProgressService extends ChangeNotifier {
-  static const _storageKey = 'quiz_attempts_v1';
+  static const _storageKey = 'quiz_attempts_v2';
   final Map<String, QuizAttempt> _bestAttempts = {};
 
   Map<String, QuizAttempt> get bestAttempts => _bestAttempts;
@@ -21,23 +17,36 @@ class ProgressService extends ChangeNotifier {
     if (raw == null) return;
     final Map<String, dynamic> decoded = jsonDecode(raw);
     _bestAttempts.clear();
-    decoded.forEach((courseId, json) {
-      _bestAttempts[courseId] = QuizAttempt.fromJson(json);
+    decoded.forEach((key, json) {
+      _bestAttempts[key] = QuizAttempt.fromJson(json);
     });
     notifyListeners();
   }
 
   Future<void> recordAttempt(QuizAttempt attempt) async {
-    final existing = _bestAttempts[attempt.courseId];
-    // Only keep the best (highest scoring) attempt per course.
+    final existing = _bestAttempts[attempt.storageKey];
     if (existing == null || attempt.score > existing.score) {
-      _bestAttempts[attempt.courseId] = attempt;
+      _bestAttempts[attempt.storageKey] = attempt;
       await _save();
       notifyListeners();
     }
   }
 
-  QuizAttempt? bestFor(String courseId) => _bestAttempts[courseId];
+  QuizAttempt? bestFor(String courseId, String quizKey) =>
+      _bestAttempts['${courseId}__$quizKey'];
+
+  /// Best score across all quizzes for a course, used for the course-level
+  /// summary badge.
+  QuizAttempt? bestOverallFor(String courseId) {
+    QuizAttempt? best;
+    for (final attempt in _bestAttempts.values) {
+      if (attempt.courseId != courseId) continue;
+      if (best == null || attempt.score / attempt.total > best.score / best.total) {
+        best = attempt;
+      }
+    }
+    return best;
+  }
 
   Future<void> _save() async {
     final prefs = await SharedPreferences.getInstance();
