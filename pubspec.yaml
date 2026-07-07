@@ -29,6 +29,12 @@ dependencies:
   # Share button on the Course Detail screen
   share_plus: ^10.1.2
 
+  # Free Accessible Tools: text-to-speech reader + talking calculator
+  flutter_tts: ^4.2.0
+
+  # Free Accessible Tools: quick links to system accessibility settings
+  app_settings: ^5.1.1
+
   # --- Not used yet, but kept here as the upgrade path for real Google
   # Sign-In once a Firebase project is set up (see README.md). Uncomment
   # when ready:

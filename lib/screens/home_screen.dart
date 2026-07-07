@@ -4,6 +4,7 @@ import '../data/catalog_data.dart';
 import '../models/models.dart';
 import '../services/update_service.dart';
 import '../widgets/course_card.dart';
+import 'accessible_tools_screen.dart';
 import 'category_listing_screen.dart';
 import 'course_detail_screen.dart';
 import 'search_results_screen.dart';
@@ -100,6 +101,52 @@ class _HomeScreenState extends State<HomeScreen> {
                     icon: const Icon(Icons.arrow_forward),
                     tooltip: 'Search',
                     onPressed: () => _openSearch(_searchController.text),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+
+            // ---- Free Accessible Tools banner ----
+            Semantics(
+              button: true,
+              label: 'Free Accessible Tools. Read Aloud, Talking Calculator, screen reader shortcuts, and more, at no cost.',
+              child: Card(
+                color: Theme.of(context).colorScheme.primaryContainer,
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(12),
+                  onTap: () => Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (_) => const AccessibleToolsScreen())),
+                  child: Padding(
+                    padding: const EdgeInsets.all(14),
+                    child: ExcludeSemantics(
+                      child: Row(
+                        children: [
+                          Icon(Icons.accessibility_new, color: Theme.of(context).colorScheme.onPrimaryContainer, size: 28),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Free Accessible Tools',
+                                  style: TextStyle(
+                                    color: Theme.of(context).colorScheme.onPrimaryContainer,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                Text(
+                                  'Read Aloud, Talking Calculator, and more — always free',
+                                  style: TextStyle(color: Theme.of(context).colorScheme.onPrimaryContainer),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Icon(Icons.chevron_right, color: Theme.of(context).colorScheme.onPrimaryContainer),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ),

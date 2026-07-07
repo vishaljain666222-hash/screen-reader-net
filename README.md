@@ -12,9 +12,10 @@ automatically; nothing about that mechanism changed in this rebuild.
 ## What's in this version
 
 - **Splash → Onboarding (3 slides, first run only) → Login/Sign-up → Main app**
-- **Bottom navigation**: Home, Categories, Wishlist, Profile
-- **Home**: search bar, 9-category grid, Bestseller Combo Programs strip, "Payments Coming Soon" banner
-- **Category Listing** → **Course Detail** (full syllabus, duration, price, sticky Buy Now, Share, Wishlist heart)
+- **Bottom navigation**: Home, Categories, Tools, Wishlist, Profile
+- **Home**: search bar, "Free Accessible Tools" banner, 9-category grid, Bestseller Combo Programs strip, "Payments Coming Soon" banner
+- **Accessible Tools** (always free, no purchase needed): Read Aloud (text-to-speech reader), Talking Calculator, Screen Reader Shortcuts quick-reference (NVDA/JAWS/Narrator/TalkBack/VoiceOver), Color Contrast Checker, and quick links to the phone's system accessibility settings
+- **Category Listing** → **Course Detail** (full syllabus, duration, price, sticky Buy Now, Share, Wishlist heart — with spoken "Added/Removed from wishlist" announcements)
 - **Buy Now → Payment Coming Soon screen** (Notify Me / Add to Wishlist / contact-us fallback)
 - **Search** across all 51 courses by name, tagline, or category
 - **Wishlist / My Courses**, **Profile** (with Accessibility Settings + About/Contact/Support)

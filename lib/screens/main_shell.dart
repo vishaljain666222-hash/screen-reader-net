@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'accessible_tools_screen.dart';
 import 'categories_screen.dart';
 import 'home_screen.dart';
 import 'profile_screen.dart';
 import 'wishlist_screen.dart';
 
 /// Bottom navigation shell — every screen in the app is reachable from
-/// these 4 tabs within 2 taps, per the Master Plan's navigation spec.
+/// these tabs within 2 taps, per the Master Plan's navigation spec.
 class MainShell extends StatefulWidget {
   const MainShell({super.key});
 
@@ -19,6 +20,7 @@ class _MainShellState extends State<MainShell> {
   static const _tabs = [
     HomeScreen(),
     CategoriesScreen(),
+    AccessibleToolsScreen(),
     WishlistScreen(),
     ProfileScreen(),
   ];
@@ -34,6 +36,8 @@ class _MainShellState extends State<MainShell> {
           NavigationDestination(icon: Icon(Icons.home_outlined), selectedIcon: Icon(Icons.home), label: 'Home'),
           NavigationDestination(
               icon: Icon(Icons.grid_view_outlined), selectedIcon: Icon(Icons.grid_view), label: 'Categories'),
+          NavigationDestination(
+              icon: Icon(Icons.accessibility_new_outlined), selectedIcon: Icon(Icons.accessibility_new), label: 'Tools'),
           NavigationDestination(
               icon: Icon(Icons.favorite_border), selectedIcon: Icon(Icons.favorite), label: 'Wishlist'),
           NavigationDestination(icon: Icon(Icons.person_outline), selectedIcon: Icon(Icons.person), label: 'Profile'),
