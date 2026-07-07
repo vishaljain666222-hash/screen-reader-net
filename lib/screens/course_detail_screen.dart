@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import '../models/models.dart';
@@ -17,6 +18,14 @@ class CourseDetailScreen extends StatelessWidget {
     Navigator.of(context).push(MaterialPageRoute(builder: (_) => PaymentComingSoonScreen(course: course)));
   }
 
+  Future<void> _onToggleWishlist(BuildContext context, WishlistService wishlist) async {
+    final isNowWishlisted = await wishlist.toggle(course.id);
+    SemanticsService.announce(
+      isNowWishlisted ? 'Added to wishlist' : 'Removed from wishlist',
+      TextDirection.ltr,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final wishlist = context.watch<WishlistService>();
@@ -26,25 +35,19 @@ class CourseDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(course.name, style: const TextStyle(fontSize: 18)),
         actions: [
-          Semantics(
-            button: true,
-            label: 'Share this course',
-            child: IconButton(
-              icon: const Icon(Icons.share_outlined),
-              onPressed: () {
-                Share.share(
-                  'Check out "${course.name}" on Accessible AI Academy — ${course.duration}, ₹${course.formattedPrice}. ${course.tagline}',
-                );
-              },
-            ),
+          IconButton(
+            icon: const Icon(Icons.share_outlined),
+            tooltip: 'Share this course',
+            onPressed: () {
+              Share.share(
+                'Check out "${course.name}" on Accessible AI Academy — ${course.duration}, ₹${course.formattedPrice}. ${course.tagline}',
+              );
+            },
           ),
-          Semantics(
-            button: true,
-            label: isWishlisted ? 'Remove from wishlist' : 'Add to wishlist',
-            child: IconButton(
-              icon: Icon(isWishlisted ? Icons.favorite : Icons.favorite_border),
-              onPressed: () => wishlist.toggle(course.id),
-            ),
+          IconButton(
+            icon: Icon(isWishlisted ? Icons.favorite : Icons.favorite_border),
+            tooltip: isWishlisted ? 'Remove from wishlist' : 'Add to wishlist',
+            onPressed: () => _onToggleWishlist(context, wishlist),
           ),
         ],
       ),

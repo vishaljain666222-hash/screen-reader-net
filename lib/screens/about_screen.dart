@@ -92,11 +92,13 @@ class _AboutScreenState extends State<AboutScreen> {
             const SizedBox(height: 24),
             Text('Contact & Support', style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 8),
-            const ListTile(
+            ListTile(
               contentPadding: EdgeInsets.zero,
-              leading: Icon(Icons.email_outlined),
-              title: Text('Email'),
-              subtitle: Text('support@accessibleknowledgehub.example'),
+              leading: const Icon(Icons.email_outlined),
+              title: const Text('Email'),
+              subtitle: const Text('vishaljain666222@gmail.com'),
+              trailing: const Icon(Icons.open_in_new, size: 18),
+              onTap: () => launchUrl(Uri.parse('mailto:vishaljain666222@gmail.com')),
             ),
             const ListTile(
               contentPadding: EdgeInsets.zero,

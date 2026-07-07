@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../models/models.dart';
@@ -35,6 +36,14 @@ class _PaymentComingSoonScreenState extends State<PaymentComingSoonScreen> {
     setState(() => _notifyRequested = true);
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text("You're on the list — we'll notify you when payments go live!")),
+    );
+  }
+
+  Future<void> _onToggleWishlist(WishlistService wishlist) async {
+    final isNowWishlisted = await wishlist.toggle(widget.course.id);
+    SemanticsService.announce(
+      isNowWishlisted ? 'Added to wishlist' : 'Removed from wishlist',
+      TextDirection.ltr,
     );
   }
 
@@ -88,7 +97,7 @@ class _PaymentComingSoonScreenState extends State<PaymentComingSoonScreen> {
               SizedBox(
                 width: double.infinity,
                 child: OutlinedButton.icon(
-                  onPressed: () => wishlist.toggle(course.id),
+                  onPressed: () => _onToggleWishlist(wishlist),
                   icon: Icon(isWishlisted ? Icons.favorite : Icons.favorite_border),
                   label: Text(isWishlisted ? 'Added to Wishlist' : 'Add to Wishlist'),
                 ),
@@ -96,7 +105,7 @@ class _PaymentComingSoonScreenState extends State<PaymentComingSoonScreen> {
               const SizedBox(height: 24),
               TextButton(
                 onPressed: () async {
-                  await launchUrl(Uri.parse('mailto:support@accessibleknowledgehub.example?subject=Enroll%20in%20${Uri.encodeComponent(course.name)}'));
+                  await launchUrl(Uri.parse('mailto:vishaljain666222@gmail.com?subject=Enroll%20in%20${Uri.encodeComponent(course.name)}'));
                 },
                 child: const Text('Prefer to enrol manually? Contact us'),
               ),

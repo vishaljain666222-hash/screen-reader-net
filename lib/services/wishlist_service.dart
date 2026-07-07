@@ -23,15 +23,19 @@ class WishlistService extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> toggle(String courseId) async {
+  Future<bool> toggle(String courseId) async {
+    final bool isNowWishlisted;
     if (_courseIds.contains(courseId)) {
       _courseIds.remove(courseId);
+      isNowWishlisted = false;
     } else {
       _courseIds.add(courseId);
+      isNowWishlisted = true;
     }
     notifyListeners();
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_storageKey, jsonEncode(_courseIds.toList()));
+    return isNowWishlisted;
   }
 
   Future<void> add(String courseId) async {
