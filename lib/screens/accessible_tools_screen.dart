@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:app_settings/app_settings.dart';
 import 'tools/read_aloud_screen.dart';
 import 'tools/talking_calculator_screen.dart';
 import 'tools/screen_reader_shortcuts_screen.dart';
@@ -46,18 +45,6 @@ class AccessibleToolsScreen extends StatelessWidget {
       builder: (_) => const ColorContrastCheckerScreen(),
     ),
   ];
-
-  Future<void> _openSystemSetting(BuildContext context, AppSettingsType type, String label) async {
-    try {
-      await AppSettings.openAppSettings(type: type);
-    } catch (_) {
-      if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Could not open $label on this device.')),
-        );
-      }
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -106,34 +93,61 @@ class AccessibleToolsScreen extends StatelessWidget {
                   ),
                 )),
             const SizedBox(height: 12),
-            Text('Quick Settings Shortcuts', style: Theme.of(context).textTheme.titleLarge),
+            Text('Quick Settings Tips', style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 4),
             Text(
-              'Jump straight to your phone\'s built-in accessibility settings.',
+              'Your phone\'s built-in accessibility features are just a couple of taps away:',
               style: Theme.of(context).textTheme.bodySmall,
             ),
             const SizedBox(height: 12),
-            Wrap(
-              spacing: 10,
-              runSpacing: 10,
-              children: [
-                OutlinedButton.icon(
-                  onPressed: () => _openSystemSetting(context, AppSettingsType.accessibility, 'Accessibility settings'),
-                  icon: const Icon(Icons.accessibility_new),
-                  label: const Text('Accessibility Settings'),
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    _SettingsTip(
+                      icon: Icons.accessibility_new,
+                      text: 'TalkBack, magnification, and more: Settings → Accessibility',
+                    ),
+                    SizedBox(height: 12),
+                    _SettingsTip(
+                      icon: Icons.text_fields,
+                      text: 'Bigger text and display size: Settings → Display → Font size',
+                    ),
+                    SizedBox(height: 12),
+                    _SettingsTip(
+                      icon: Icons.contrast,
+                      text: 'Colour correction and contrast: Settings → Accessibility → Display',
+                    ),
+                  ],
                 ),
-                OutlinedButton.icon(
-                  onPressed: () => _openSystemSetting(context, AppSettingsType.display, 'Display settings'),
-                  icon: const Icon(Icons.brightness_6_outlined),
-                  label: const Text('Display Settings'),
-                ),
-                OutlinedButton.icon(
-                  onPressed: () => _openSystemSetting(context, AppSettingsType.settings, 'Settings'),
-                  icon: const Icon(Icons.settings_outlined),
-                  label: const Text('All Phone Settings'),
-                ),
-              ],
+              ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _SettingsTip extends StatelessWidget {
+  final IconData icon;
+  final String text;
+
+  const _SettingsTip({required this.icon, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      label: text,
+      child: ExcludeSemantics(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Icon(icon, size: 20, color: Theme.of(context).colorScheme.primary),
+            const SizedBox(width: 10),
+            Expanded(child: Text(text)),
           ],
         ),
       ),
