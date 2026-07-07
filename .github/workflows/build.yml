@@ -93,18 +93,52 @@ jobs:
       - name: Save build log on failure
         if: failure()
         run: |
-          tail -c 60000 /tmp/build_log.txt > debug_build_log.txt 2>/dev/null || echo "no build log captured" > debug_build_log.txt
-          echo "--- android/app/build.gradle (or .kts) ---" >> debug_build_log.txt
-          cat android/app/build.gradle 2>/dev/null >> debug_build_log.txt || cat android/app/build.gradle.kts 2>/dev/null >> debug_build_log.txt
-          echo "--- flutter-apk output dir ---" >> debug_build_log.txt
-          ls -la build/app/outputs/flutter-apk/ 2>&1 >> debug_build_log.txt
-          git config user.email "ci@screenreaderacademy.local"
-          git config user.name "CI Debug"
-          git add -f debug_build_log.txt
-          git commit -m "CI: save build log after failure [skip ci]"
-          git push origin HEAD:ci-debug-log --force
+          tail -c 60000 /tmp/build_log.txt > /tmp/debug_build_log.txt 2>/dev/null || echo "no build log captured" > /tmp/debug_build_log.txt
+          echo "--- flutter-apk output dir ---" >> /tmp/debug_build_log.txt
+          ls -la build/app/outputs/flutter-apk/ 2>&1 >> /tmp/debug_build_log.txt || true
+          python3 - <<'PYEOF'
+          import base64
+          import json
+          import os
+          import urllib.request
+
+          token = os.environ["GITHUB_TOKEN"]
+          repo = os.environ["GITHUB_REPOSITORY"]
+
+          with open("/tmp/debug_build_log.txt", "rb") as f:
+              content_b64 = base64.b64encode(f.read()).decode()
+
+          headers = {
+              "Authorization": f"Bearer {token}",
+              "Accept": "application/vnd.github+json",
+              "Content-Type": "application/json",
+          }
+          url = f"https://api.github.com/repos/{repo}/contents/debug_build_log.txt"
+
+          sha = None
+          try:
+              req = urllib.request.Request(url + "?ref=main", headers=headers)
+              with urllib.request.urlopen(req) as resp:
+                  sha = json.loads(resp.read())["sha"]
+          except Exception:
+              pass
+
+          body = {"message": "CI: save build log after failure [skip ci]", "content": content_b64, "branch": "main"}
+          if sha:
+              body["sha"] = sha
+
+          req = urllib.request.Request(
+              url, data=json.dumps(body).encode(), method="PUT", headers=headers
+          )
+          try:
+              with urllib.request.urlopen(req) as resp:
+                  print("Saved debug log, status:", resp.status)
+          except Exception as e:
+              print("Failed to save debug log:", e)
+          PYEOF
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
 
       - name: Rename APK for clarity
         run: |
