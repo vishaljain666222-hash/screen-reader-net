@@ -1,422 +1,245 @@
-0/transforms/72900708c1e0e024f0c4099220a6db11/transformed/recyclerview-1.0.0 because:
+dl.google.com/dl/android/maven2/com/android/tools/external/com-intellij/kotlin-compiler/32.0.1/kotlin-compiler-32.0.1.jar to /home/runner/.gradle/.tmp/gradle_download12677360944505102271bin
+[   +3 ms] Downloading https://dl.google.com/dl/android/maven2/com/android/tools/external/org-jetbrains/uast/32.0.1/uast-32.0.1.jar to /home/runner/.gradle/.tmp/gradle_download4649766939321786414bin
+[        ] Downloading https://repo.maven.apache.org/maven2/org/codehaus/groovy/groovy/3.0.22/groovy-3.0.22.jar to /home/runner/.gradle/.tmp/gradle_download4881183049717170094bin
+[        ] Downloading https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-reflect/2.2.10/kotlin-reflect-2.2.10.jar to /home/runner/.gradle/.tmp/gradle_download1502637184337720161bin
+[        ] Downloading https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-stdlib/2.2.10/kotlin-stdlib-2.2.10.jar to /home/runner/.gradle/.tmp/gradle_download16613951270420055852bin
+[        ] Downloading https://dl.google.com/dl/android/maven2/com/android/tools/play-sdk-proto/32.0.1/play-sdk-proto-32.0.1.jar to /home/runner/.gradle/.tmp/gradle_download12258055741489971474bin
+[  +92 ms] Downloading https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpclient/4.5.6/httpclient-4.5.6.jar to /home/runner/.gradle/.tmp/gradle_download14821064564089918684bin
+[        ] Downloading https://dl.google.com/dl/android/maven2/com/android/tools/lint/lint-api/32.0.1/lint-api-32.0.1.jar to /home/runner/.gradle/.tmp/gradle_download12108913810219449386bin
+[+5994 ms] Caching disabled for task ':app_settings:extractReleaseAnnotations' because:
 [        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/917ac1d2f506739dd973ad5ca82a62c5/transformed/slidingpanelayout-1.2.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/eaa335650bb8c89161aebdc62f94ff4d/transformed/window-1.2.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[   +3 ms] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/35479f2a1f7dcf572bfde73d0dba826c/transformed/preference-1.2.1 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/ca1bb616a9e46343a7d40f40c1bc980f/transformed/window-java-1.2.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/ec0baea8441ade588187fd131d894d44/transformed/fragment-ktx-1.7.1 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/126dc19dd3a3673012cc4ecb3725d9f9/transformed/fragment-1.7.1 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/b296b55fa3aa22906dc5daca83bcff19/transformed/appcompat-1.1.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/a9c54265703a8859c88e483f2d031f79/transformed/activity-ktx-1.9.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/a9d8cfe7789b17cc630cf698c0ec4b78/transformed/activity-1.9.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[   +2 ms] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/4628a1f69eee496f13b87cea65ad97da/transformed/legacy-support-core-utils-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/1f19800fa0b5a740e8828c3e4c29450b/transformed/loader-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/dfbd5628fd8a021284a078efbe649550/transformed/lifecycle-runtime-ktx-2.7.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/080143ce89027b0b54ef5b849e34d9d8/transformed/lifecycle-livedata-2.7.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/8c2ded0640a09aed5f9b441c6cc42d15/transformed/lifecycle-livedata-core-ktx-2.7.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/8eef41a7b54e4c5488caa48c6f5c2758/transformed/lifecycle-viewmodel-ktx-2.7.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/7fc8631901274ce640296854ba58d1a1/transformed/lifecycle-viewmodel-2.7.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/bbf29c236f99deaf06aa49aa28df4db3/transformed/lifecycle-livedata-core-2.7.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/7cd5589a2e8a337671610aeb1cdb3114/transformed/lifecycle-process-2.7.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/7171c65c287df1708808084c50978b3d/transformed/savedstate-ktx-1.2.1 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/2d6e2473fd9e34c6b63eec7a3d04148d/transformed/savedstate-1.2.1 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/c761ccf1bde03d71307f87a4260aedf6/transformed/lifecycle-runtime-2.7.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/47d569bf26ac3766f7d77698ce6ebbb7/transformed/lifecycle-viewmodel-savedstate-2.7.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/f2ab6c0cc5664e3b278b4c65df3adb21/transformed/core-ktx-1.17.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/d517ddd8b5da68ee587ca5cb6342a94b/transformed/viewpager-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/d1549cfecc9ff6fa6b6264d5e00ccdbb/transformed/appcompat-resources-1.1.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/cc2e22c4d69f44f7ab80fabcfea4c19a/transformed/drawerlayout-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/8535663f53dae857400c2acc23435532/transformed/coordinatorlayout-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/dc8c4ef6c9a593de319323388f605e9a/transformed/customview-1.1.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/a6aed8ecdb2c5335799240e7fe0e358c/transformed/transition-1.4.1 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/76439c2459e22837f0d765cc6a4992ae/transformed/vectordrawable-animated-1.1.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/270418040a2af6966a26774c153b8fc6/transformed/vectordrawable-1.1.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/9562d8ffcdfc4b4e66c12d3a71f2a1d5/transformed/swiperefreshlayout-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/4720afb538de6a030d793217e445e64a/transformed/asynclayoutinflater-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/7c817d9db1602404e59af62b98531c8d/transformed/core-1.17.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/c6466f2c4208f5de07e1017ae202890b/transformed/datastore-preferences-core-release because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/f3f2ef5054ee3adf0d754eb8da0dafa6/transformed/datastore-core-release because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/b178f6599e3156e5517b650b61e348f7/transformed/datastore-preferences-release because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/ee4b2a098a1cfeef6ba2102968188c13/transformed/datastore-release because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/5c94befe4668e8f6359f6030b7aebae2/transformed/profileinstaller-1.3.1 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/e95a0773979f76500dda918488f63bcd/transformed/startup-runtime-1.1.1 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/a194381929ede6a1b2d3d0e807956588/transformed/tracing-1.2.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/44c5d9dc81ab33d1b826e942a82eb5fb/transformed/exifinterface-1.4.1 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/edfa289fa7cf497ba1aec0beadf69654/transformed/interpolator-1.0.0 because:
-[        ]   Build cache is disabled
-[   +6 ms]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/cdc124139fe6c2a17e8751ec1664a319/transformed/versionedparcelable-1.1.1 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/3f05e33d21d767942dbe3f72c02a405b/transformed/core-runtime-2.2.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/ad3185ce015447a65294903b8e0d6cb8/transformed/cursoradapter-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/113f75943f1bfeac71a59e76227cc914/transformed/core-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/bcfc69860720c2dfec2afc3d73f13e2b/transformed/documentfile-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/f521a1dc20b444cce778704cd3b87889/transformed/localbroadcastmanager-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/5bfca3c1bece79be60e41b8294dfea0c/transformed/print-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/65667f8e938a990a9b90bdd5d3dd6ee3/transformed/annotation-experimental-1.4.1 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/0a66ca7dbd49fb67f606d3440988ef9b/transformed/core-viewtree-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/4d2d1574b7de543a71548ac5ed655cad/transformed/relinker-1.4.5 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/4b4d78fc4bdcb138dc2fb587aaf70635/transformed/browser-1.9.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/e32f43fccae3a139ec81e57e7fdc6110/transformed/legacy-support-core-ui-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for task ':app:checkReleaseAarMetadata' because:
-[        ]   Build cache is disabled
-[        ]   Caching has been disabled for the task
-[        ] Task ':app:checkReleaseAarMetadata' is not up-to-date because:
+[        ] Task ':app_settings:extractReleaseAnnotations' is not up-to-date because:
 [        ]   No history is available.
-[        ] > Task :app:mapReleaseSourceSetPaths
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/72900708c1e0e024f0c4099220a6db11/transformed/recyclerview-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/917ac1d2f506739dd973ad5ca82a62c5/transformed/slidingpanelayout-1.2.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/35479f2a1f7dcf572bfde73d0dba826c/transformed/preference-1.2.1 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/eaa335650bb8c89161aebdc62f94ff4d/transformed/window-1.2.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/ca1bb616a9e46343a7d40f40c1bc980f/transformed/window-java-1.2.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/ec0baea8441ade588187fd131d894d44/transformed/fragment-ktx-1.7.1 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/b296b55fa3aa22906dc5daca83bcff19/transformed/appcompat-1.1.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/126dc19dd3a3673012cc4ecb3725d9f9/transformed/fragment-1.7.1 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/a9c54265703a8859c88e483f2d031f79/transformed/activity-ktx-1.9.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/a9d8cfe7789b17cc630cf698c0ec4b78/transformed/activity-1.9.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[   +3 ms] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/1f19800fa0b5a740e8828c3e4c29450b/transformed/loader-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/4628a1f69eee496f13b87cea65ad97da/transformed/legacy-support-core-utils-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/080143ce89027b0b54ef5b849e34d9d8/transformed/lifecycle-livedata-2.7.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/dfbd5628fd8a021284a078efbe649550/transformed/lifecycle-runtime-ktx-2.7.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/8c2ded0640a09aed5f9b441c6cc42d15/transformed/lifecycle-livedata-core-ktx-2.7.0 because:
-[   +1 ms]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/8eef41a7b54e4c5488caa48c6f5c2758/transformed/lifecycle-viewmodel-ktx-2.7.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/7fc8631901274ce640296854ba58d1a1/transformed/lifecycle-viewmodel-2.7.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/bbf29c236f99deaf06aa49aa28df4db3/transformed/lifecycle-livedata-core-2.7.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/7cd5589a2e8a337671610aeb1cdb3114/transformed/lifecycle-process-2.7.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/2d6e2473fd9e34c6b63eec7a3d04148d/transformed/savedstate-1.2.1 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/7171c65c287df1708808084c50978b3d/transformed/savedstate-ktx-1.2.1 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/c761ccf1bde03d71307f87a4260aedf6/transformed/lifecycle-runtime-2.7.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/47d569bf26ac3766f7d77698ce6ebbb7/transformed/lifecycle-viewmodel-savedstate-2.7.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/f2ab6c0cc5664e3b278b4c65df3adb21/transformed/core-ktx-1.17.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/d517ddd8b5da68ee587ca5cb6342a94b/transformed/viewpager-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/d1549cfecc9ff6fa6b6264d5e00ccdbb/transformed/appcompat-resources-1.1.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/cc2e22c4d69f44f7ab80fabcfea4c19a/transformed/drawerlayout-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/8535663f53dae857400c2acc23435532/transformed/coordinatorlayout-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/dc8c4ef6c9a593de319323388f605e9a/transformed/customview-1.1.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/76439c2459e22837f0d765cc6a4992ae/transformed/vectordrawable-animated-1.1.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/a6aed8ecdb2c5335799240e7fe0e358c/transformed/transition-1.4.1 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/270418040a2af6966a26774c153b8fc6/transformed/vectordrawable-1.1.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/4720afb538de6a030d793217e445e64a/transformed/asynclayoutinflater-1.0.0 because:
-[   +2 ms]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/9562d8ffcdfc4b4e66c12d3a71f2a1d5/transformed/swiperefreshlayout-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/7c817d9db1602404e59af62b98531c8d/transformed/core-1.17.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/c6466f2c4208f5de07e1017ae202890b/transformed/datastore-preferences-core-release because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/f3f2ef5054ee3adf0d754eb8da0dafa6/transformed/datastore-core-release because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/b178f6599e3156e5517b650b61e348f7/transformed/datastore-preferences-release because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/ee4b2a098a1cfeef6ba2102968188c13/transformed/datastore-release because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/5c94befe4668e8f6359f6030b7aebae2/transformed/profileinstaller-1.3.1 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/e95a0773979f76500dda918488f63bcd/transformed/startup-runtime-1.1.1 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/a194381929ede6a1b2d3d0e807956588/transformed/tracing-1.2.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/44c5d9dc81ab33d1b826e942a82eb5fb/transformed/exifinterface-1.4.1 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/edfa289fa7cf497ba1aec0beadf69654/transformed/interpolator-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/cdc124139fe6c2a17e8751ec1664a319/transformed/versionedparcelable-1.1.1 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/3f05e33d21d767942dbe3f72c02a405b/transformed/core-runtime-2.2.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/ad3185ce015447a65294903b8e0d6cb8/transformed/cursoradapter-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/113f75943f1bfeac71a59e76227cc914/transformed/core-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/bcfc69860720c2dfec2afc3d73f13e2b/transformed/documentfile-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/f521a1dc20b444cce778704cd3b87889/transformed/localbroadcastmanager-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/5bfca3c1bece79be60e41b8294dfea0c/transformed/print-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/65667f8e938a990a9b90bdd5d3dd6ee3/transformed/annotation-experimental-1.4.1 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[   +2 ms] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/0a66ca7dbd49fb67f606d3440988ef9b/transformed/core-viewtree-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/4d2d1574b7de543a71548ac5ed655cad/transformed/relinker-1.4.5 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/e32f43fccae3a139ec81e57e7fdc6110/transformed/legacy-support-core-ui-1.0.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for AarTransform: /home/runner/.gradle/caches/9.1.0/transforms/4b4d78fc4bdcb138dc2fb587aaf70635/transformed/browser-1.9.0 because:
-[        ]   Build cache is disabled
-[        ]   Caching not enabled.
-[        ] Caching disabled for task ':app:mapReleaseSourceSetPaths' because:
-[        ]   Build cache is disabled
-[        ]   Caching has been disabled for the task
-[        ] Task ':app:mapReleaseSourceSetPaths' is not up-to-date because:
-[        ]   No history is available.
-[ +257 ms] > Task :url_launcher_android:compileReleaseKotlin
-[        ] i: Finished executing kotlin compiler using DAEMON strategy
-[+2199 ms] > Task :shared_preferences_android:compileReleaseKotlin
-[        ] w: file:///home/runner/.pub-cache/hosted/pub.dev/shared_preferences_android-2.4.26/android/src/main/kotlin/io/flutter/plugins/sharedpreferences/SharedPreferencesPlugin.kt:451:52 Unnecessary non-null assertion (!!) on a non-null receiver of type 'String'.
-[  +99 ms] i: Finished executing kotlin compiler using DAEMON strategy
-[ +100 ms] [Incubating] Problems report is available at: file:///home/runner/work/screen-reader-net/screen-reader-net/build/reports/problems/problems-report.html
-[   +2 ms] FAILURE: Build failed with an exception.
+[  +99 ms] file or directory '/home/runner/.pub-cache/hosted/pub.dev/app_settings-5.2.0/android/src/main/java', not found
+[        ] file or directory '/home/runner/.pub-cache/hosted/pub.dev/app_settings-5.2.0/android/src/release/java', not found
+[        ] file or directory '/home/runner/.pub-cache/hosted/pub.dev/app_settings-5.2.0/android/src/release/kotlin', not found
+[        ] > Task :app:minifyReleaseWithR8
+[        ] INFO: /home/runner/work/screen-reader-net/screen-reader-net/build/app/intermediates/default_proguard_files/global/proguard-android-optimize.txt-9.0.1:21:1-22:1: R8: Proguard configuration rule does not match anything: `-keep public class com.google.vending.licensing.ILicensingService`
+[        ] INFO: /home/runner/work/screen-reader-net/screen-reader-net/build/app/intermediates/default_proguard_files/global/proguard-android-optimize.txt-9.0.1:22:1-23:1: R8: Proguard configuration rule does not match anything: `-keep public class com.android.vending.licensing.ILicensingService`
+[        ] INFO: /home/runner/work/screen-reader-net/screen-reader-net/build/app/intermediates/default_proguard_files/global/proguard-android-optimize.txt-9.0.1:23:1-24:1: R8: Proguard configuration rule does not match anything: `-keep public class com.google.android.vending.licensing.ILicensingService`
+[        ] INFO: /home/runner/work/screen-reader-net/screen-reader-net/build/app/intermediates/default_proguard_files/global/proguard-android-optimize.txt-9.0.1:55:1-57:2: R8: Proguard configuration rule does not match anything: `-keepclassmembers class * {
+[        ]   @android.webkit.JavascriptInterface <methods>;
+[        ] }`
+[        ] INFO: /home/runner/work/screen-reader-net/screen-reader-net/build/app/intermediates/default_proguard_files/global/proguard-android-optimize.txt-9.0.1:68:1-70:1: R8: Proguard configuration rule does not match anything: `-keep class android.support.annotation.Keep`
+[        ] INFO: /home/runner/work/screen-reader-net/screen-reader-net/build/app/intermediates/default_proguard_files/global/proguard-android-optimize.txt-9.0.1:70:1-52: R8: Proguard configuration rule does not match anything: `-keep @android.support.annotation.Keep class * {
+[        ]   *;
+[        ] }`
+[        ] INFO: /home/runner/work/screen-reader-net/screen-reader-net/build/app/intermediates/default_proguard_files/global/proguard-android-optimize.txt-9.0.1:72:1-74:2: R8: Proguard configuration rule does not match anything: `-keepclasseswithmembers class * {
+[        ]   @android.support.annotation.Keep <methods>;
+[        ] }`
+[        ] INFO: /home/runner/work/screen-reader-net/screen-reader-net/build/app/intermediates/default_proguard_files/global/proguard-android-optimize.txt-9.0.1:76:1-78:2: R8: Proguard configuration rule does not match anything: `-keepclasseswithmembers class * {
+[        ]   @android.support.annotation.Keep <fields>;
+[        ] }`
+[        ] INFO: /home/runner/work/screen-reader-net/screen-reader-net/build/app/intermediates/default_proguard_files/global/proguard-android-optimize.txt-9.0.1:80:1-82:2: R8: Proguard configuration rule does not match anything: `-keepclasseswithmembers class * {
+[        ]   @android.support.annotation.Keep <init>(...);
+[        ] }`
+[        ] INFO: /home/runner/.gradle/caches/9.1.0/transforms/126dc19dd3a3673012cc4ecb3725d9f9/transformed/fragment-1.7.1/proguard.txt:16:1-19:2: R8: Proguard configuration rule does not match anything: `-if public class ** extends androidx.fragment.app.Fragment
+[        ] -keepclasseswithmembers,allowrepackaging,allowobfuscation public class <1> {
+[        ]   public <init>();
+[        ] }`
+[        ] INFO: /home/runner/.gradle/caches/9.1.0/transforms/126dc19dd3a3673012cc4ecb3725d9f9/transformed/fragment-1.7.1/proguard.txt:24:1-29:2: R8: Proguard configuration rule does not match anything: `-if class androidx.fragment.app.FragmentTransition {
+[        ]   private static androidx.fragment.app.FragmentTransitionImpl resolveSupportImpl();
+[        ] }
+[        ] -keep class androidx.transition.FragmentTransitionSupport {
+[        ]   public <init>();
+[        ] }`
+[        ] INFO: /home/runner/.gradle/caches/9.1.0/transforms/7fc8631901274ce640296854ba58d1a1/transformed/lifecycle-viewmodel-2.7.0/proguard.txt:5:1-7:2: R8: Proguard configuration rule does not match anything: `-keepclassmembers,allowrepackaging,allowobfuscation class * extends androidx.lifecycle.AndroidViewModel {
+[        ]   <init>(android.app.Application);
+[        ] }`
+[        ] INFO: /home/runner/.gradle/caches/9.1.0/transforms/c761ccf1bde03d71307f87a4260aedf6/transformed/lifecycle-runtime-2.7.0/proguard.txt:10:1-12:2: R8: Proguard configuration rule does not match anything: `-keep class * implements androidx.lifecycle.GeneratedAdapter {
+[        ]   <init>(...);
+[        ] }`
+[        ] INFO: /home/runner/.gradle/caches/9.1.0/transforms/c761ccf1bde03d71307f87a4260aedf6/transformed/lifecycle-runtime-2.7.0/proguard.txt:14:1-16:2: R8: Proguard configuration rule does not match anything: `-keepclassmembers class ** {
+[        ]   @androidx.lifecycle.OnLifecycleEvent *;
+[   +1 ms] }`
+[        ] INFO: /home/runner/.gradle/caches/9.1.0/transforms/47d569bf26ac3766f7d77698ce6ebbb7/transformed/lifecycle-viewmodel-savedstate-2.7.0/proguard.txt:1:1-3:2: R8: Proguard configuration rule does not match anything: `-keepclassmembers,allowrepackaging,allowobfuscation class * extends androidx.lifecycle.ViewModel {
+[        ]   <init>(androidx.lifecycle.SavedStateHandle);
+[        ] }`
+[        ] INFO: /home/runner/.gradle/caches/9.1.0/transforms/47d569bf26ac3766f7d77698ce6ebbb7/transformed/lifecycle-viewmodel-savedstate-2.7.0/proguard.txt:5:1-7:2: R8: Proguard configuration rule does not match anything: `-keepclassmembers,allowrepackaging,allowobfuscation class * extends androidx.lifecycle.AndroidViewModel {
+[        ]   <init>(android.app.Application,androidx.lifecycle.SavedStateHandle);
+[        ] }`
+[        ] INFO: /home/runner/.gradle/caches/9.1.0/transforms/8535663f53dae857400c2acc23435532/transformed/coordinatorlayout-1.0.0/proguard.txt:16:1-19:2: R8: Proguard configuration rule does not match anything: `-keep public class * extends androidx.coordinatorlayout.widget.CoordinatorLayout$Behavior {
+[        ]   public <init>(android.content.Context,android.util.AttributeSet);
+[        ]   public <init>();
+[        ] }`
+[        ] INFO: /home/runner/.gradle/caches/9.1.0/transforms/9b4c2d9cf2c29450ea1df0005d7c8be8/transformed/shrink-rules/lib/META-INF/proguard/androidx-annotations.pro:4:1-6:2: R8: Proguard configuration rule does not match anything: `-keepclasseswithmembers class * {
+[        ]   @androidx.annotation.Keep <methods>;
+[        ] }`
+[        ] INFO: /home/runner/.gradle/caches/9.1.0/transforms/9b4c2d9cf2c29450ea1df0005d7c8be8/transformed/shrink-rules/lib/META-INF/proguard/androidx-annotations.pro:8:1-10:2: R8: Proguard configuration rule does not match anything: `-keepclasseswithmembers class * {
+[        ]   @androidx.annotation.Keep <fields>;
+[        ] }`
+[        ] INFO: /home/runner/.gradle/caches/9.1.0/transforms/9b4c2d9cf2c29450ea1df0005d7c8be8/transformed/shrink-rules/lib/META-INF/proguard/androidx-annotations.pro:12:1-14:2: R8: Proguard configuration rule does not match anything: `-keepclasseswithmembers class * {
+[        ]   @androidx.annotation.Keep <init>(...);
+[        ] }`
+[+24993 ms] AAPT2 aapt2-9.0.1-14304508-linux Daemon #0: shutdown
+[        ] AAPT2 aapt2-9.0.1-14304508-linux Daemon #1: shutdown
+[        ] AAPT2 aapt2-9.0.1-14304508-linux Daemon #2: shutdown
+[        ] [Incubating] Problems report is available at: file:///home/runner/work/screen-reader-net/screen-reader-net/build/reports/problems/problems-report.html
+[  +99 ms] FAILURE: Build failed with an exception.
 [        ] * What went wrong:
-[        ] Execution failed for task ':app:checkReleaseAarMetadata'.
+[        ] Execution failed for task ':app_settings:checkReleaseAarMetadata'.
 [        ] > A failure occurred while executing com.android.build.gradle.internal.tasks.CheckAarMetadataWorkAction
-[        ]    > 6 issues were found when checking AAR metadata:
-[        ]        1.  Dependency ':flutter_tts' requires libraries and applications that
-[        ]            depend on it to compile against version 36 or later of the
+[        ]    > 15 issues were found when checking AAR metadata:
+[        ]        1.  Dependency 'androidx.fragment:fragment:1.7.1' requires libraries and applications that
+[        ]            depend on it to compile against version 34 or later of the
 [        ]            Android APIs.
-[        ]            :app is currently compiled against android-35.
+[        ]            :app_settings is currently compiled against android-33.
 [        ]            Recommended action: Update this project to use a newer compileSdk
-[        ]            of at least 36, for example 36.
+[        ]            of at least 34, for example 36.
 [        ]            Note that updating a library or application's compileSdk (which
 [        ]            allows newer APIs to be used) can be done separately from updating
 [        ]            targetSdk (which opts the app in to new runtime behavior) and
 [        ]            minSdk (which determines which devices the app can be installed
 [        ]            on).
-[        ]        2.  Dependency ':shared_preferences_android' requires libraries and applications that
-[        ]            depend on it to compile against version 36 or later of the
+[        ]        2.  Dependency 'androidx.window:window:1.2.0' requires libraries and applications that
+[        ]            depend on it to compile against version 34 or later of the
 [        ]            Android APIs.
-[        ]            :app is currently compiled against android-35.
+[        ]            :app_settings is currently compiled against android-33.
 [        ]            Recommended action: Update this project to use a newer compileSdk
-[        ]            of at least 36, for example 36.
+[        ]            of at least 34, for example 36.
 [        ]            Note that updating a library or application's compileSdk (which
 [        ]            allows newer APIs to be used) can be done separately from updating
 [        ]            targetSdk (which opts the app in to new runtime behavior) and
 [        ]            minSdk (which determines which devices the app can be installed
 [        ]            on).
-[        ]        3.  Dependency ':url_launcher_android' requires libraries and applications that
-[        ]            depend on it to compile against version 36 or later of the
+[        ]        3.  Dependency 'androidx.window:window-java:1.2.0' requires libraries and applications that
+[        ]            depend on it to compile against version 34 or later of the
 [        ]            Android APIs.
-[        ]            :app is currently compiled against android-35.
+[        ]            :app_settings is currently compiled against android-33.
 [        ]            Recommended action: Update this project to use a newer compileSdk
-[        ]            of at least 36, for example 36.
+[        ]            of at least 34, for example 36.
 [        ]            Note that updating a library or application's compileSdk (which
 [        ]            allows newer APIs to be used) can be done separately from updating
 [        ]            targetSdk (which opts the app in to new runtime behavior) and
 [        ]            minSdk (which determines which devices the app can be installed
 [        ]            on).
-[        ]        4.  Dependency 'androidx.browser:browser:1.9.0' requires libraries and applications that
-[        ]            depend on it to compile against version 36 or later of the
+[        ]        4.  Dependency 'androidx.activity:activity:1.8.1' requires libraries and applications that
+[        ]            depend on it to compile against version 34 or later of the
 [        ]            Android APIs.
-[        ]            :app is currently compiled against android-35.
+[        ]            :app_settings is currently compiled against android-33.
 [        ]            Recommended action: Update this project to use a newer compileSdk
-[        ]            of at least 36, for example 36.
+[        ]            of at least 34, for example 36.
 [        ]            Note that updating a library or application's compileSdk (which
 [        ]            allows newer APIs to be used) can be done separately from updating
 [        ]            targetSdk (which opts the app in to new runtime behavior) and
 [        ]            minSdk (which determines which devices the app can be installed
 [        ]            on).
-[        ]        5.  Dependency 'androidx.core:core-ktx:1.17.0' requires libraries and applications that
-[        ]            depend on it to compile against version 36 or later of the
+[        ]        5.  Dependency 'androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0' requires libraries and applications that
+[        ]            depend on it to compile against version 34 or later of the
 [        ]            Android APIs.
-[        ]            :app is currently compiled against android-35.
+[        ]            :app_settings is currently compiled against android-33.
 [        ]            Recommended action: Update this project to use a newer compileSdk
-[        ]            of at least 36, for example 36.
+[        ]            of at least 34, for example 36.
 [        ]            Note that updating a library or application's compileSdk (which
 [        ]            allows newer APIs to be used) can be done separately from updating
 [        ]            targetSdk (which opts the app in to new runtime behavior) and
 [        ]            minSdk (which determines which devices the app can be installed
 [        ]            on).
-[        ]        6.  Dependency 'androidx.core:core:1.17.0' requires libraries and applications that
-[        ]            depend on it to compile against version 36 or later of the
+[        ]        6.  Dependency 'androidx.lifecycle:lifecycle-livedata:2.7.0' requires libraries and applications that
+[        ]            depend on it to compile against version 34 or later of the
 [        ]            Android APIs.
-[        ]            :app is currently compiled against android-35.
+[        ]            :app_settings is currently compiled against android-33.
 [        ]            Recommended action: Update this project to use a newer compileSdk
-[        ]            of at least 36, for example 36.
+[        ]            of at least 34, for example 36.
+[        ]            Note that updating a library or application's compileSdk (which
+[        ]            allows newer APIs to be used) can be done separately from updating
+[        ]            targetSdk (which opts the app in to new runtime behavior) and
+[        ]            minSdk (which determines which devices the app can be installed
+[        ]            on).
+[        ]        7.  Dependency 'androidx.lifecycle:lifecycle-viewmodel:2.7.0' requires libraries and applications that
+[        ]            depend on it to compile against version 34 or later of the
+[        ]            Android APIs.
+[        ]            :app_settings is currently compiled against android-33.
+[        ]            Recommended action: Update this project to use a newer compileSdk
+[        ]            of at least 34, for example 36.
+[        ]            Note that updating a library or application's compileSdk (which
+[        ]            allows newer APIs to be used) can be done separately from updating
+[        ]            targetSdk (which opts the app in to new runtime behavior) and
+[        ]            minSdk (which determines which devices the app can be installed
+[        ]            on).
+[        ]        8.  Dependency 'androidx.lifecycle:lifecycle-livedata-core:2.7.0' requires libraries and applications that
+[        ]            depend on it to compile against version 34 or later of the
+[        ]            Android APIs.
+[        ]            :app_settings is currently compiled against android-33.
+[        ]            Recommended action: Update this project to use a newer compileSdk
+[        ]            of at least 34, for example 36.
+[        ]            Note that updating a library or application's compileSdk (which
+[        ]            allows newer APIs to be used) can be done separately from updating
+[        ]            targetSdk (which opts the app in to new runtime behavior) and
+[        ]            minSdk (which determines which devices the app can be installed
+[        ]            on).
+[        ]        9.  Dependency 'androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0' requires libraries and applications that
+[        ]            depend on it to compile against version 34 or later of the
+[        ]            Android APIs.
+[        ]            :app_settings is currently compiled against android-33.
+[        ]            Recommended action: Update this project to use a newer compileSdk
+[        ]            of at least 34, for example 36.
+[        ]            Note that updating a library or application's compileSdk (which
+[        ]            allows newer APIs to be used) can be done separately from updating
+[        ]            targetSdk (which opts the app in to new runtime behavior) and
+[        ]            minSdk (which determines which devices the app can be installed
+[        ]            on).
+[        ]       10.  Dependency 'androidx.core:core-ktx:1.13.1' requires libraries and applications that
+[        ]            depend on it to compile against version 34 or later of the
+[        ]            Android APIs.
+[        ]            :app_settings is currently compiled against android-33.
+[        ]            Recommended action: Update this project to use a newer compileSdk
+[        ]            of at least 34, for example 36.
+[        ]            Note that updating a library or application's compileSdk (which
+[        ]            allows newer APIs to be used) can be done separately from updating
+[        ]            targetSdk (which opts the app in to new runtime behavior) and
+[        ]            minSdk (which determines which devices the app can be installed
+[        ]            on).
+[        ]       11.  Dependency 'androidx.core:core:1.13.1' requires libraries and applications that
+[        ]            depend on it to compile against version 34 or later of the
+[        ]            Android APIs.
+[        ]            :app_settings is currently compiled against android-33.
+[        ]            Recommended action: Update this project to use a newer compileSdk
+[        ]            of at least 34, for example 36.
+[        ]            Note that updating a library or application's compileSdk (which
+[        ]            allows newer APIs to be used) can be done separately from updating
+[        ]            targetSdk (which opts the app in to new runtime behavior) and
+[        ]            minSdk (which determines which devices the app can be installed
+[        ]            on).
+[        ]       12.  Dependency 'androidx.lifecycle:lifecycle-runtime:2.7.0' requires libraries and applications that
+[        ]            depend on it to compile against version 34 or later of the
+[        ]            Android APIs.
+[        ]            :app_settings is currently compiled against android-33.
+[        ]            Recommended action: Update this project to use a newer compileSdk
+[        ]            of at least 34, for example 36.
+[        ]            Note that updating a library or application's compileSdk (which
+[        ]            allows newer APIs to be used) can be done separately from updating
+[        ]            targetSdk (which opts the app in to new runtime behavior) and
+[        ]            minSdk (which determines which devices the app can be installed
+[        ]            on).
+[        ]       13.  Dependency 'androidx.lifecycle:lifecycle-process:2.7.0' requires libraries and applications that
+[        ]            depend on it to compile against version 34 or later of the
+[        ]            Android APIs.
+[        ]            :app_settings is currently compiled against android-33.
+[        ]            Recommended action: Update this project to use a newer compileSdk
+[        ]            of at least 34, for example 36.
+[        ]            Note that updating a library or application's compileSdk (which
+[        ]            allows newer APIs to be used) can be done separately from updating
+[        ]            targetSdk (which opts the app in to new runtime behavior) and
+[        ]            minSdk (which determines which devices the app can be installed
+[        ]            on).
+[        ]       14.  Dependency 'androidx.annotation:annotation-experimental:1.4.0' requires libraries and applications that
+[        ]            depend on it to compile against version 34 or later of the
+[        ]            Android APIs.
+[        ]            :app_settings is currently compiled against android-33.
+[        ]            Recommended action: Update this project to use a newer compileSdk
+[        ]            of at least 34, for example 36.
+[        ]            Note that updating a library or application's compileSdk (which
+[        ]            allows newer APIs to be used) can be done separately from updating
+[        ]            targetSdk (which opts the app in to new runtime behavior) and
+[        ]            minSdk (which determines which devices the app can be installed
+[        ]            on).
+[        ]       15.  Dependency 'androidx.exifinterface:exifinterface:1.4.1' requires libraries and applications that
+[        ]            depend on it to compile against version 34 or later of the
+[        ]            Android APIs.
+[        ]            :app_settings is currently compiled against android-33.
+[        ]            Recommended action: Update this project to use a newer compileSdk
+[        ]            of at least 34, for example 36.
 [        ]            Note that updating a library or application's compileSdk (which
 [        ]            allows newer APIs to be used) can be done separately from updating
 [        ]            targetSdk (which opts the app in to new runtime behavior) and
@@ -427,7 +250,7 @@
 [        ] > Run with --scan to generate a Build Scan (Powered by Develocity).
 [        ] > Get more help at https://help.gradle.org.
 [        ] * Exception is:
-[        ] org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:checkReleaseAarMetadata'.
+[        ] org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app_settings:checkReleaseAarMetadata'.
 [        ] 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:135)
 [        ] 	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
 [        ] 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:133)
@@ -458,6 +281,36 @@
 [        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:327)
 [        ] 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
 [        ] 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+[        ] 	at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:111)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:146)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:131)
+[        ] 	at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
+[        ] 	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
+[        ] 	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+[        ] 	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
+[        ] 	at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$10(DefaultBuildLifecycleController.java:313)
+[        ] 	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:266)
+[        ] 	at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$8(StateTransitionController.java:177)
+[        ] 	at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:45)
+[        ] 	at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:177)
+[        ] 	at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:304)
+[        ] 	at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
+[        ] 	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:263)
+[        ] 	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:127)
+[        ] 	at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:181)
+[        ] 	at org.gradle.composite.internal.DefaultBuildController.access$000(DefaultBuildController.java:50)
+[        ] 	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:198)
+[        ] 	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:84)
+[        ] 	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:198)
+[        ] 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+[        ] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 [        ] 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
 [        ] 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 [        ] 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
@@ -561,69 +414,168 @@
 [        ] 	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34)
 [        ] 	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
 [        ] 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:132)
-[        ] 	... 32 more
-[        ] Caused by: java.lang.RuntimeException: 6 issues were found when checking AAR metadata:
-[        ]   1.  Dependency ':flutter_tts' requires libraries and applications that
-[        ]       depend on it to compile against version 36 or later of the
+[        ] 	... 62 more
+[        ] Caused by: java.lang.RuntimeException: 15 issues were found when checking AAR metadata:
+[        ]   1.  Dependency 'androidx.fragment:fragment:1.7.1' requires libraries and applications that
+[        ]       depend on it to compile against version 34 or later of the
 [        ]       Android APIs.
-[        ]       :app is currently compiled against android-35.
+[        ]       :app_settings is currently compiled against android-33.
 [        ]       Recommended action: Update this project to use a newer compileSdk
-[        ]       of at least 36, for example 36.
+[        ]       of at least 34, for example 36.
 [        ]       Note that updating a library or application's compileSdk (which
 [        ]       allows newer APIs to be used) can be done separately from updating
 [        ]       targetSdk (which opts the app in to new runtime behavior) and
 [        ]       minSdk (which determines which devices the app can be installed
 [        ]       on).
-[        ]   2.  Dependency ':shared_preferences_android' requires libraries and applications that
-[        ]       depend on it to compile against version 36 or later of the
+[        ]   2.  Dependency 'androidx.window:window:1.2.0' requires libraries and applications that
+[        ]       depend on it to compile against version 34 or later of the
 [        ]       Android APIs.
-[        ]       :app is currently compiled against android-35.
+[        ]       :app_settings is currently compiled against android-33.
 [        ]       Recommended action: Update this project to use a newer compileSdk
-[        ]       of at least 36, for example 36.
+[        ]       of at least 34, for example 36.
 [        ]       Note that updating a library or application's compileSdk (which
 [        ]       allows newer APIs to be used) can be done separately from updating
 [        ]       targetSdk (which opts the app in to new runtime behavior) and
 [        ]       minSdk (which determines which devices the app can be installed
 [        ]       on).
-[        ]   3.  Dependency ':url_launcher_android' requires libraries and applications that
-[        ]       depend on it to compile against version 36 or later of the
+[        ]   3.  Dependency 'androidx.window:window-java:1.2.0' requires libraries and applications that
+[        ]       depend on it to compile against version 34 or later of the
 [        ]       Android APIs.
-[        ]       :app is currently compiled against android-35.
+[        ]       :app_settings is currently compiled against android-33.
 [        ]       Recommended action: Update this project to use a newer compileSdk
-[        ]       of at least 36, for example 36.
+[        ]       of at least 34, for example 36.
 [        ]       Note that updating a library or application's compileSdk (which
 [        ]       allows newer APIs to be used) can be done separately from updating
 [        ]       targetSdk (which opts the app in to new runtime behavior) and
 [        ]       minSdk (which determines which devices the app can be installed
 [        ]       on).
-[        ]   4.  Dependency 'androidx.browser:browser:1.9.0' requires libraries and applications that
-[        ]       depend on it to compile against version 36 or later of the
+[        ]   4.  Dependency 'androidx.activity:activity:1.8.1' requires libraries and applications that
+[        ]       depend on it to compile against version 34 or later of the
 [        ]       Android APIs.
-[        ]       :app is currently compiled against android-35.
+[        ]       :app_settings is currently compiled against android-33.
 [        ]       Recommended action: Update this project to use a newer compileSdk
-[        ]       of at least 36, for example 36.
+[        ]       of at least 34, for example 36.
 [        ]       Note that updating a library or application's compileSdk (which
 [        ]       allows newer APIs to be used) can be done separately from updating
 [        ]       targetSdk (which opts the app in to new runtime behavior) and
 [        ]       minSdk (which determines which devices the app can be installed
 [        ]       on).
-[        ]   5.  Dependency 'androidx.core:core-ktx:1.17.0' requires libraries and applications that
-[        ]       depend on it to compile against version 36 or later of the
+[        ]   5.  Dependency 'androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0' requires libraries and applications that
+[        ]       depend on it to compile against version 34 or later of the
 [        ]       Android APIs.
-[        ]       :app is currently compiled against android-35.
+[        ]       :app_settings is currently compiled against android-33.
 [        ]       Recommended action: Update this project to use a newer compileSdk
-[        ]       of at least 36, for example 36.
+[        ]       of at least 34, for example 36.
 [        ]       Note that updating a library or application's compileSdk (which
 [        ]       allows newer APIs to be used) can be done separately from updating
 [        ]       targetSdk (which opts the app in to new runtime behavior) and
 [        ]       minSdk (which determines which devices the app can be installed
 [        ]       on).
-[        ]   6.  Dependency 'androidx.core:core:1.17.0' requires libraries and applications that
-[        ]       depend on it to compile against version 36 or later of the
+[        ]   6.  Dependency 'androidx.lifecycle:lifecycle-livedata:2.7.0' requires libraries and applications that
+[        ]       depend on it to compile against version 34 or later of the
 [        ]       Android APIs.
-[        ]       :app is currently compiled against android-35.
+[        ]       :app_settings is currently compiled against android-33.
 [        ]       Recommended action: Update this project to use a newer compileSdk
-[        ]       of at least 36, for example 36.
+[        ]       of at least 34, for example 36.
+[        ]       Note that updating a library or application's compileSdk (which
+[        ]       allows newer APIs to be used) can be done separately from updating
+[        ]       targetSdk (which opts the app in to new runtime behavior) and
+[        ]       minSdk (which determines which devices the app can be installed
+[        ]       on).
+[        ]   7.  Dependency 'androidx.lifecycle:lifecycle-viewmodel:2.7.0' requires libraries and applications that
+[        ]       depend on it to compile against version 34 or later of the
+[        ]       Android APIs.
+[        ]       :app_settings is currently compiled against android-33.
+[        ]       Recommended action: Update this project to use a newer compileSdk
+[        ]       of at least 34, for example 36.
+[        ]       Note that updating a library or application's compileSdk (which
+[        ]       allows newer APIs to be used) can be done separately from updating
+[        ]       targetSdk (which opts the app in to new runtime behavior) and
+[        ]       minSdk (which determines which devices the app can be installed
+[        ]       on).
+[        ]   8.  Dependency 'androidx.lifecycle:lifecycle-livedata-core:2.7.0' requires libraries and applications that
+[        ]       depend on it to compile against version 34 or later of the
+[        ]       Android APIs.
+[        ]       :app_settings is currently compiled against android-33.
+[        ]       Recommended action: Update this project to use a newer compileSdk
+[        ]       of at least 34, for example 36.
+[        ]       Note that updating a library or application's compileSdk (which
+[        ]       allows newer APIs to be used) can be done separately from updating
+[        ]       targetSdk (which opts the app in to new runtime behavior) and
+[        ]       minSdk (which determines which devices the app can be installed
+[        ]       on).
+[        ]   9.  Dependency 'androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0' requires libraries and applications that
+[        ]       depend on it to compile against version 34 or later of the
+[        ]       Android APIs.
+[        ]       :app_settings is currently compiled against android-33.
+[        ]       Recommended action: Update this project to use a newer compileSdk
+[        ]       of at least 34, for example 36.
+[        ]       Note that updating a library or application's compileSdk (which
+[        ]       allows newer APIs to be used) can be done separately from updating
+[        ]       targetSdk (which opts the app in to new runtime behavior) and
+[        ]       minSdk (which determines which devices the app can be installed
+[        ]       on).
+[        ]  10.  Dependency 'androidx.core:core-ktx:1.13.1' requires libraries and applications that
+[        ]       depend on it to compile against version 34 or later of the
+[        ]       Android APIs.
+[        ]       :app_settings is currently compiled against android-33.
+[        ]       Recommended action: Update this project to use a newer compileSdk
+[        ]       of at least 34, for example 36.
+[        ]       Note that updating a library or application's compileSdk (which
+[        ]       allows newer APIs to be used) can be done separately from updating
+[        ]       targetSdk (which opts the app in to new runtime behavior) and
+[        ]       minSdk (which determines which devices the app can be installed
+[        ]       on).
+[        ]  11.  Dependency 'androidx.core:core:1.13.1' requires libraries and applications that
+[        ]       depend on it to compile against version 34 or later of the
+[        ]       Android APIs.
+[        ]       :app_settings is currently compiled against android-33.
+[        ]       Recommended action: Update this project to use a newer compileSdk
+[        ]       of at least 34, for example 36.
+[        ]       Note that updating a library or application's compileSdk (which
+[        ]       allows newer APIs to be used) can be done separately from updating
+[        ]       targetSdk (which opts the app in to new runtime behavior) and
+[        ]       minSdk (which determines which devices the app can be installed
+[        ]       on).
+[        ]  12.  Dependency 'androidx.lifecycle:lifecycle-runtime:2.7.0' requires libraries and applications that
+[        ]       depend on it to compile against version 34 or later of the
+[        ]       Android APIs.
+[        ]       :app_settings is currently compiled against android-33.
+[        ]       Recommended action: Update this project to use a newer compileSdk
+[        ]       of at least 34, for example 36.
+[        ]       Note that updating a library or application's compileSdk (which
+[        ]       allows newer APIs to be used) can be done separately from updating
+[        ]       targetSdk (which opts the app in to new runtime behavior) and
+[        ]       minSdk (which determines which devices the app can be installed
+[        ]       on).
+[        ]  13.  Dependency 'androidx.lifecycle:lifecycle-process:2.7.0' requires libraries and applications that
+[        ]       depend on it to compile against version 34 or later of the
+[        ]       Android APIs.
+[        ]       :app_settings is currently compiled against android-33.
+[        ]       Recommended action: Update this project to use a newer compileSdk
+[        ]       of at least 34, for example 36.
+[        ]       Note that updating a library or application's compileSdk (which
+[        ]       allows newer APIs to be used) can be done separately from updating
+[        ]       targetSdk (which opts the app in to new runtime behavior) and
+[        ]       minSdk (which determines which devices the app can be installed
+[        ]       on).
+[        ]  14.  Dependency 'androidx.annotation:annotation-experimental:1.4.0' requires libraries and applications that
+[        ]       depend on it to compile against version 34 or later of the
+[        ]       Android APIs.
+[        ]       :app_settings is currently compiled against android-33.
+[        ]       Recommended action: Update this project to use a newer compileSdk
+[        ]       of at least 34, for example 36.
+[        ]       Note that updating a library or application's compileSdk (which
+[        ]       allows newer APIs to be used) can be done separately from updating
+[        ]       targetSdk (which opts the app in to new runtime behavior) and
+[        ]       minSdk (which determines which devices the app can be installed
+[        ]       on).
+[        ]  15.  Dependency 'androidx.exifinterface:exifinterface:1.4.1' requires libraries and applications that
+[        ]       depend on it to compile against version 34 or later of the
+[        ]       Android APIs.
+[        ]       :app_settings is currently compiled against android-33.
+[        ]       Recommended action: Update this project to use a newer compileSdk
+[        ]       of at least 34, for example 36.
 [        ]       Note that updating a library or application's compileSdk (which
 [        ]       allows newer APIs to be used) can be done separately from updating
 [        ]       targetSdk (which opts the app in to new runtime behavior) and
@@ -656,18 +608,17 @@
 [        ] 	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:127)
 [        ] 	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:132)
 [        ] 	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runBatch(DefaultConditionalExecutionQueue.java:164)
-[   +1 ms] 	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.run(DefaultConditionalExecutionQueue.java:133)
-[        ] 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-[        ] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-[        ] 	... 5 more
-[        ] BUILD FAILED in 3m 38s
+[        ] 	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.run(DefaultConditionalExecutionQueue.java:133)
+[        ] 	... 7 more
+[        ] BUILD FAILED in 4m 56s
 [        ] Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
 [        ] You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
 [        ] For more on this, please refer to https://docs.gradle.org/9.1.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
-[        ] 157 actionable tasks: 156 executed, 1 up-to-date
-[ +449 ms] Running Gradle task 'assembleRelease'... (completed in 219.5s)
-[   +1 ms] "flutter apk" took 220,116ms.
-[   +7 ms] Gradle task assembleRelease failed with exit code 1
+[        ] 251 actionable tasks: 250 executed, 1 up-to-date
+[        ] Gradle was unable to watch the file system for changes. Unable to watch same file twice via different paths: Already watching path: /home/runner/work/screen-reader-net/screen-reader-net/android.
+[ +378 ms] Running Gradle task 'assembleRelease'... (completed in 297.1s)
+[   +2 ms] "flutter apk" took 297,735ms.
+[   +8 ms] Gradle task assembleRelease failed with exit code 1
 [        ] 
            #0      throwToolExit (package:flutter_tools/src/base/common.dart:34:3)
            #1      AndroidGradleBuilder.buildGradleApp (package:flutter_tools/src/android/gradle.dart:595:7)
