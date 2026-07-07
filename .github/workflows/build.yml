@@ -86,14 +86,18 @@ jobs:
           echo "VERSION_NAME=$VERSION_NAME" >> $GITHUB_ENV
 
       - name: Build signed release APK
-        run: flutter build apk --release --verbose 2>&1 | tee /tmp/build_log.txt
+        run: |
+          set -o pipefail
+          flutter build apk --release --verbose 2>&1 | tee /tmp/build_log.txt
 
       - name: Save build log on failure
         if: failure()
         run: |
-          tail -c 60000 /tmp/build_log.txt > debug_build_log.txt
+          tail -c 60000 /tmp/build_log.txt > debug_build_log.txt 2>/dev/null || echo "no build log captured" > debug_build_log.txt
           echo "--- android/app/build.gradle (or .kts) ---" >> debug_build_log.txt
           cat android/app/build.gradle 2>/dev/null >> debug_build_log.txt || cat android/app/build.gradle.kts 2>/dev/null >> debug_build_log.txt
+          echo "--- flutter-apk output dir ---" >> debug_build_log.txt
+          ls -la build/app/outputs/flutter-apk/ 2>&1 >> debug_build_log.txt
           git config user.email "ci@screenreaderacademy.local"
           git config user.name "CI Debug"
           git add -f debug_build_log.txt
@@ -103,7 +107,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Rename APK for clarity
-        run: cp build/app/outputs/flutter-apk/app-release.apk build/app/outputs/flutter-apk/screenreader-academy.apk
+        run: |
+          ls -la build/app/outputs/flutter-apk/
+          cp build/app/outputs/flutter-apk/app-release.apk build/app/outputs/flutter-apk/screenreader-academy.apk
 
       - name: Upload build artifact (backup copy)
         uses: actions/upload-artifact@v4
