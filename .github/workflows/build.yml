@@ -57,6 +57,14 @@ jobs:
           echo "--- AndroidManifest.xml permissions check ---"
           grep -n "uses-permission" android/app/src/main/AndroidManifest.xml || echo "WARNING: no uses-permission lines found"
 
+      - name: Force a modern compileSdk/targetSdk for newer plugin dependencies
+        run: |
+          GRADLE_FILE=android/app/build.gradle
+          [ -f "$GRADLE_FILE" ] || GRADLE_FILE=android/app/build.gradle.kts
+          sed -i 's/flutter\.compileSdkVersion/35/' "$GRADLE_FILE"
+          sed -i 's/flutter\.targetSdkVersion/35/' "$GRADLE_FILE"
+          grep -n "compileSdk\|targetSdk" "$GRADLE_FILE"
+
       - name: Decode signing keystore
         env:
           KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
