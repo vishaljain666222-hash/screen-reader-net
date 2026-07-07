@@ -32,10 +32,9 @@ class CourseDetailScreen extends StatelessWidget {
             child: IconButton(
               icon: const Icon(Icons.share_outlined),
               onPressed: () {
-                SharePlus.instance.share(ShareParams(
-                  text:
-                      'Check out "${course.name}" on Accessible AI Academy — ${course.duration}, ₹${course.formattedPrice}. ${course.tagline}',
-                ));
+                Share.share(
+                  'Check out "${course.name}" on Accessible AI Academy — ${course.duration}, ₹${course.formattedPrice}. ${course.tagline}',
+                );
               },
             ),
           ),
