@@ -14,12 +14,12 @@ automatically; nothing about that mechanism changed in this rebuild.
 - **Splash → Onboarding (3 slides, first run only) → Login/Sign-up → Main app**
 - **Bottom navigation**: Home, Categories, Tools, Wishlist, Profile
 - **Home**: search bar, "Free Accessible Tools" banner, 9-category grid, Bestseller Combo Programs strip, "Payments Coming Soon" banner
-- **Accessible Tools** (always free, no purchase needed): Read Aloud (text-to-speech reader), Talking Calculator, Screen Reader Shortcuts quick-reference (NVDA/JAWS/Narrator/TalkBack/VoiceOver), Color Contrast Checker, and quick links to the phone's system accessibility settings
+- **Accessible Tools** (always free, no purchase needed): AI Text Summarizer (on-device, no API key/cost) and Talking Calculator
 - **Category Listing** → **Course Detail** (full syllabus, duration, price, sticky Buy Now, Share, Wishlist heart — with spoken "Added/Removed from wishlist" announcements)
 - **Buy Now → Payment Coming Soon screen** (Notify Me / Add to Wishlist / contact-us fallback)
 - **Search** across all 51 courses by name, tagline, or category
 - **Wishlist / My Courses**, **Profile** (with Accessibility Settings + About/Contact/Support)
-- **Accessibility Settings**: text-size slider (up to 200%), High Contrast Mode, screen-reader hints toggle
+- **Accessibility Settings**: Dark Mode / Light Mode switch, text-size slider (up to 200%), High Contrast Mode, screen-reader hints toggle
 - **PaymentGatewayService**: a clearly stubbed interface (`initiatePayment` / `verifyPayment` / `refund`) ready for a real provider (Razorpay/PayU/Stripe/Google Play Billing) later, with every Buy Now tap logged locally for demand tracking
 - **In-app update checker** (unchanged): checks GitHub Releases on open, plus a manual "Check for Updates" button in About
 

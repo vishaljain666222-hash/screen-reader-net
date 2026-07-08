@@ -110,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // ---- Free Accessible Tools banner ----
             Semantics(
               button: true,
-              label: 'Free Accessible Tools. Read Aloud, Talking Calculator, screen reader shortcuts, and more, at no cost.',
+              label: 'Free Accessible Tools. AI Text Summarizer and Talking Calculator, at no cost.',
               child: Card(
                 color: Theme.of(context).colorScheme.primaryContainer,
                 child: InkWell(
@@ -137,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                 ),
                                 Text(
-                                  'Read Aloud, Talking Calculator, and more — always free',
+                                  'AI Text Summarizer & Talking Calculator — always free',
                                   style: TextStyle(color: Theme.of(context).colorScheme.onPrimaryContainer),
                                 ),
                               ],

@@ -38,7 +38,9 @@ class AccessibleAiAcademyApp extends StatelessWidget {
           return MaterialApp(
             title: 'Accessible AI Academy',
             debugShowCheckedModeBanner: false,
-            theme: _buildTheme(highContrast: settings.highContrast),
+            theme: _buildTheme(highContrast: settings.highContrast, brightness: Brightness.light),
+            darkTheme: _buildTheme(highContrast: settings.highContrast, brightness: Brightness.dark),
+            themeMode: settings.darkMode ? ThemeMode.dark : ThemeMode.light,
             builder: (context, child) {
               // Support Android system font scaling up to 200% (Master Plan
               // 3.2) — combine the system's own scale with our in-app slider,
@@ -67,32 +69,54 @@ class AccessibleAiAcademyApp extends StatelessWidget {
     );
   }
 
-  ThemeData _buildTheme({required bool highContrast}) {
-    final colorScheme = highContrast
-        ? ColorScheme.fromSeed(
-            seedColor: _brandPurple,
-            brightness: Brightness.light,
-            primary: const Color(0xFF3B0A94), // deeper purple for higher contrast
-            secondary: const Color(0xFFB45300), // deeper amber for higher contrast
-            surface: Colors.white,
-            onSurface: Colors.black,
-          )
-        : ColorScheme.fromSeed(
-            seedColor: _brandPurple,
-            brightness: Brightness.light,
-            primary: _brandPurple,
-            secondary: _brandAmber,
-          );
+  ThemeData _buildTheme({required bool highContrast, required Brightness brightness}) {
+    final isDark = brightness == Brightness.dark;
+
+    final ColorScheme colorScheme;
+    if (isDark) {
+      colorScheme = ColorScheme.fromSeed(
+        seedColor: _brandPurple,
+        brightness: Brightness.dark,
+        primary: highContrast ? const Color(0xFFD8B9FF) : const Color(0xFFC4A6F0),
+        secondary: highContrast ? const Color(0xFFFFD08A) : const Color(0xFFF6C177),
+        surface: highContrast ? Colors.black : const Color(0xFF1C1B1F),
+        onSurface: highContrast ? Colors.white : const Color(0xFFE6E1E5),
+      );
+    } else if (highContrast) {
+      colorScheme = ColorScheme.fromSeed(
+        seedColor: _brandPurple,
+        brightness: Brightness.light,
+        primary: const Color(0xFF3B0A94), // deeper purple for higher contrast
+        secondary: const Color(0xFFB45300), // deeper amber for higher contrast
+        surface: Colors.white,
+        onSurface: Colors.black,
+      );
+    } else {
+      colorScheme = ColorScheme.fromSeed(
+        seedColor: _brandPurple,
+        brightness: Brightness.light,
+        primary: _brandPurple,
+        secondary: _brandAmber,
+      );
+    }
+
+    final bodyTextColor = isDark ? colorScheme.onSurface : (highContrast ? Colors.black : _brandText);
+    final scaffoldBg = isDark
+        ? (highContrast ? Colors.black : const Color(0xFF121212))
+        : (highContrast ? Colors.white : _brandLavender);
+    final cardColor = isDark ? const Color(0xFF262529) : Colors.white;
+    final cardBorderColor = isDark ? Colors.white : Colors.black;
 
     return ThemeData(
       useMaterial3: true,
+      brightness: brightness,
       colorScheme: colorScheme,
-      scaffoldBackgroundColor: highContrast ? Colors.white : _brandLavender,
+      scaffoldBackgroundColor: scaffoldBg,
       visualDensity: VisualDensity.standard,
       textTheme: TextTheme(
-        bodyLarge: TextStyle(fontSize: 18, color: highContrast ? Colors.black : _brandText),
-        bodyMedium: TextStyle(fontSize: 16, color: highContrast ? Colors.black : _brandText),
-        bodySmall: TextStyle(fontSize: 14, color: highContrast ? Colors.black : _brandText),
+        bodyLarge: TextStyle(fontSize: 18, color: bodyTextColor),
+        bodyMedium: TextStyle(fontSize: 16, color: bodyTextColor),
+        bodySmall: TextStyle(fontSize: 14, color: bodyTextColor),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -106,19 +130,19 @@ class AccessibleAiAcademyApp extends StatelessWidget {
       appBarTheme: AppBarTheme(
         centerTitle: false,
         backgroundColor: colorScheme.primary,
-        foregroundColor: Colors.white,
+        foregroundColor: isDark ? colorScheme.onPrimary : Colors.white,
       ),
       cardTheme: CardThemeData(
-        color: Colors.white,
-        surfaceTintColor: Colors.white,
+        color: cardColor,
+        surfaceTintColor: cardColor,
         elevation: highContrast ? 0 : 1,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
-          side: highContrast ? const BorderSide(color: Colors.black, width: 1.5) : BorderSide.none,
+          side: highContrast ? BorderSide(color: cardBorderColor, width: 1.5) : BorderSide.none,
         ),
       ),
       navigationBarTheme: NavigationBarThemeData(
-        backgroundColor: Colors.white,
+        backgroundColor: cardColor,
         indicatorColor: colorScheme.primaryContainer,
       ),
     );

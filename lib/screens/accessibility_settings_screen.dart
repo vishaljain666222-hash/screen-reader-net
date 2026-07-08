@@ -15,6 +15,15 @@ class AccessibilitySettingsScreen extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.all(20),
           children: [
+            SwitchListTile(
+              contentPadding: EdgeInsets.zero,
+              title: const Text('Dark Mode'),
+              subtitle: const Text('Switch between light and dark appearance.'),
+              secondary: Icon(settings.darkMode ? Icons.dark_mode : Icons.light_mode),
+              value: settings.darkMode,
+              onChanged: (value) => context.read<AccessibilitySettingsService>().setDarkMode(value),
+            ),
+            const Divider(height: 32),
             Text('Text Size', style: Theme.of(context).textTheme.titleMedium),
             const SizedBox(height: 4),
             Text(
