@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'tools/ai_text_summarizer_screen.dart';
 import 'tools/read_aloud_screen.dart';
 import 'tools/talking_calculator_screen.dart';
 import 'tools/screen_reader_shortcuts_screen.dart';
@@ -9,7 +10,14 @@ class _ToolInfo {
   final String description;
   final IconData icon;
   final WidgetBuilder builder;
-  const _ToolInfo({required this.title, required this.description, required this.icon, required this.builder});
+  final bool isNew;
+  const _ToolInfo({
+    required this.title,
+    required this.description,
+    required this.icon,
+    required this.builder,
+    this.isNew = false,
+  });
 }
 
 /// Accessible Tools — genuinely useful, completely free tools for people
@@ -20,6 +28,13 @@ class AccessibleToolsScreen extends StatelessWidget {
   const AccessibleToolsScreen({super.key});
 
   static final List<_ToolInfo> _tools = [
+    _ToolInfo(
+      title: 'AI Text Summarizer',
+      description: 'Paste any long text and get an instant summary, key points, and keywords — read aloud on request.',
+      icon: Icons.auto_awesome,
+      builder: (_) => const AiTextSummarizerScreen(),
+      isNew: true,
+    ),
     _ToolInfo(
       title: 'Read Aloud',
       description: 'Type or paste any text and have it read aloud, with adjustable speed.',
@@ -86,7 +101,29 @@ class AccessibleToolsScreen extends StatelessWidget {
                       backgroundColor: Theme.of(context).colorScheme.primaryContainer,
                       child: Icon(tool.icon, color: Theme.of(context).colorScheme.onPrimaryContainer),
                     ),
-                    title: Text(tool.title, style: const TextStyle(fontWeight: FontWeight.bold)),
+                    title: Row(
+                      children: [
+                        Flexible(child: Text(tool.title, style: const TextStyle(fontWeight: FontWeight.bold))),
+                        if (tool.isNew) ...[
+                          const SizedBox(width: 8),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).colorScheme.tertiaryContainer,
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Text(
+                              'NEW',
+                              style: TextStyle(
+                                fontSize: 10,
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).colorScheme.onTertiaryContainer,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ],
+                    ),
                     subtitle: Text(tool.description),
                     trailing: const Icon(Icons.chevron_right),
                     onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: tool.builder)),
