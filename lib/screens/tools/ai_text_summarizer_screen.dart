@@ -76,7 +76,7 @@ class _AiTextSummarizerScreenState extends State<AiTextSummarizerScreen> {
 
   Future<void> _attachFile() async {
     try {
-      final picked = await FilePicker.pickFiles(
+      final picked = await FilePicker.platform.pickFiles(
         type: FileType.custom,
         allowedExtensions: ['txt', 'pdf'],
       );
