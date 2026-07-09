@@ -1,11 +1,16 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:read_pdf_text/read_pdf_text.dart';
 import '../../services/text_summarizer_service.dart';
 
-/// A free, on-device "AI Text Summarizer" — paste any long text (an
-/// article, an email, study notes) and get a short summary, key points,
-/// and top keywords, all read aloud on request. Runs entirely on the
-/// device: no API key, no network call, no ongoing cost, works offline.
+/// A free, on-device "AI Text Summarizer" — paste any long text, or attach
+/// a .txt or .pdf file, and get a short summary, key points, and top
+/// keywords. Read the summary aloud, or copy it to your clipboard. Runs
+/// entirely on the device: no API key, no network call, no ongoing cost,
+/// works offline, and nothing you type or attach ever leaves your phone.
 class AiTextSummarizerScreen extends StatefulWidget {
   const AiTextSummarizerScreen({super.key});
 
@@ -21,6 +26,8 @@ class _AiTextSummarizerScreenState extends State<AiTextSummarizerScreen> {
   SummaryLength _length = SummaryLength.medium;
   SummaryResult? _result;
   bool _isSpeaking = false;
+  bool _isLoadingFile = false;
+  String? _attachedFileName;
 
   @override
   void initState() {
@@ -57,6 +64,64 @@ class _AiTextSummarizerScreenState extends State<AiTextSummarizerScreen> {
     setState(() => _isSpeaking = false);
   }
 
+  Future<void> _copySummary() async {
+    final result = _result;
+    if (result == null || result.summary.isEmpty) return;
+    await Clipboard.setData(ClipboardData(text: result.summary));
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Summary copied to clipboard.')),
+    );
+  }
+
+  Future<void> _attachFile() async {
+    try {
+      final picked = await FilePicker.platform.pickFiles(
+        type: FileType.custom,
+        allowedExtensions: ['txt', 'pdf'],
+      );
+      if (picked == null || picked.files.single.path == null) return;
+
+      final path = picked.files.single.path!;
+      final name = picked.files.single.name;
+      setState(() => _isLoadingFile = true);
+
+      String extractedText;
+      if (name.toLowerCase().endsWith('.pdf')) {
+        extractedText = await ReadPdfText.getPDFtext(path);
+      } else {
+        extractedText = await File(path).readAsString();
+      }
+
+      if (!mounted) return;
+      setState(() {
+        _isLoadingFile = false;
+        _attachedFileName = name;
+        _result = null;
+      });
+
+      if (extractedText.trim().isEmpty) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('No readable text found in that file (a scanned/image-only PDF can\'t be read this way).'),
+          ),
+        );
+        return;
+      }
+
+      _controller.text = extractedText;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Loaded "$name" — tap Summarize when ready.')),
+      );
+    } catch (e) {
+      if (!mounted) return;
+      setState(() => _isLoadingFile = false);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Could not read that file. Please try a different .txt or .pdf file.')),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final result = _result;
@@ -79,7 +144,7 @@ class _AiTextSummarizerScreenState extends State<AiTextSummarizerScreen> {
                   const SizedBox(width: 10),
                   Expanded(
                     child: Text(
-                      'Works fully on your device — no internet needed, nothing ever leaves your phone.',
+                      'Works fully on your device — no internet needed, nothing you type or attach ever leaves your phone.',
                       style: TextStyle(color: Theme.of(context).colorScheme.onSecondaryContainer, fontSize: 13),
                     ),
                   ),
@@ -87,15 +152,25 @@ class _AiTextSummarizerScreenState extends State<AiTextSummarizerScreen> {
               ),
             ),
             const SizedBox(height: 16),
+            OutlinedButton.icon(
+              onPressed: _isLoadingFile ? null : _attachFile,
+              icon: _isLoadingFile
+                  ? const SizedBox(height: 16, width: 16, child: CircularProgressIndicator(strokeWidth: 2))
+                  : const Icon(Icons.attach_file),
+              label: Text(_isLoadingFile
+                  ? 'Reading file...'
+                  : (_attachedFileName != null ? 'Attached: $_attachedFileName' : 'Attach a .txt or .pdf File')),
+            ),
+            const SizedBox(height: 12),
             Semantics(
               textField: true,
               label: 'Text to summarize',
-              hint: 'Paste an article, email, or notes here',
+              hint: 'Paste an article, email, or notes here, or attach a file above',
               child: TextField(
                 controller: _controller,
                 maxLines: 8,
                 decoration: const InputDecoration(
-                  hintText: 'Paste any long text here — an article, email, or study notes...',
+                  hintText: 'Paste any long text here, or attach a .txt / .pdf file above...',
                   border: OutlineInputBorder(),
                   alignLabelWithHint: true,
                 ),
@@ -122,7 +197,7 @@ class _AiTextSummarizerScreenState extends State<AiTextSummarizerScreen> {
             if (result != null) ...[
               const SizedBox(height: 28),
               if (result.summary.isEmpty)
-                const Text('Please paste at least a couple of full sentences to summarize.')
+                const Text('Please paste or attach at least a couple of full sentences to summarize.')
               else ...[
                 Semantics(
                   liveRegion: true,
@@ -169,10 +244,10 @@ class _AiTextSummarizerScreenState extends State<AiTextSummarizerScreen> {
                       child: ElevatedButton.icon(
                         onPressed: _isSpeaking ? null : _speakSummary,
                         icon: const Icon(Icons.volume_up),
-                        label: const Text('Read Summary Aloud'),
+                        label: const Text('Read Aloud'),
                       ),
                     ),
-                    const SizedBox(width: 12),
+                    const SizedBox(width: 8),
                     Expanded(
                       child: OutlinedButton.icon(
                         onPressed: _isSpeaking ? _stopSpeaking : null,
@@ -181,6 +256,15 @@ class _AiTextSummarizerScreenState extends State<AiTextSummarizerScreen> {
                       ),
                     ),
                   ],
+                ),
+                const SizedBox(height: 8),
+                SizedBox(
+                  width: double.infinity,
+                  child: OutlinedButton.icon(
+                    onPressed: _copySummary,
+                    icon: const Icon(Icons.copy_outlined),
+                    label: const Text('Copy Summary to Clipboard'),
+                  ),
                 ),
                 const SizedBox(height: 24),
                 Text('Key Points', style: Theme.of(context).textTheme.titleLarge),

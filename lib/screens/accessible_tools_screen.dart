@@ -27,7 +27,7 @@ class AccessibleToolsScreen extends StatelessWidget {
   static final List<_ToolInfo> _tools = [
     _ToolInfo(
       title: 'AI Text Summarizer',
-      description: 'Paste any long text and get an instant summary, key points, and keywords — read aloud on request.',
+      description: 'Paste text or attach a .txt/.pdf file — get a summary, key points, and keywords. Read aloud or copy with one tap.',
       icon: Icons.auto_awesome,
       builder: (_) => const AiTextSummarizerScreen(),
       isNew: true,
