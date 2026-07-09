@@ -33,7 +33,7 @@ dependencies:
   flutter_tts: ^4.2.0
 
   # AI Text Summarizer: attach .txt / .pdf files to summarize
-  file_picker: ^11.0.2
+  file_picker: ^10.3.10
   read_pdf_text: ^0.3.1
 
   # --- Not used yet, but kept here as the upgrade path for real Google
