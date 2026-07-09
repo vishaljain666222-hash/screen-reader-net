@@ -104,6 +104,24 @@ class AuthService extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Permanently deletes the current user's account (credentials removed
+  /// from the local users store) and ends the session. Required for Play
+  /// Store policy compliance ("account deletion") and DPDP Act erasure
+  /// rights. Callers are also responsible for clearing any other
+  /// account-linked local data (see ProfileScreen._confirmDeleteAccount).
+  Future<void> deleteAccount() async {
+    final email = _currentUser?.email;
+    if (email != null) {
+      final users = await _loadUsers();
+      users.remove(email);
+      await _saveUsers(users);
+    }
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove(_sessionKey);
+    _currentUser = null;
+    notifyListeners();
+  }
+
   Future<void> _startSession(String email, String name) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_sessionKey, email);

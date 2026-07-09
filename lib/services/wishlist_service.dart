@@ -45,4 +45,12 @@ class WishlistService extends ChangeNotifier {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_storageKey, jsonEncode(_courseIds.toList()));
   }
+
+  /// Clears all wishlist data — used when a user deletes their account.
+  Future<void> clearAll() async {
+    _courseIds.clear();
+    notifyListeners();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove(_storageKey);
+  }
 }

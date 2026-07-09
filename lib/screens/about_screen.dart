@@ -106,6 +106,28 @@ class _AboutScreenState extends State<AboutScreen> {
               title: Text('Phone / WhatsApp'),
               subtitle: Text('+91 90000 00000'),
             ),
+            const SizedBox(height: 8),
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              leading: const Icon(Icons.privacy_tip_outlined),
+              title: const Text('Privacy Policy'),
+              trailing: const Icon(Icons.open_in_new, size: 18),
+              onTap: () => launchUrl(
+                Uri.parse('https://vishaljain666222-hash.github.io/screen-reader-net/privacy-policy.html'),
+                mode: LaunchMode.externalApplication,
+              ),
+            ),
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              leading: const Icon(Icons.delete_outline),
+              title: const Text('Delete My Account & Data'),
+              subtitle: const Text('Available anytime from your Profile tab'),
+              trailing: const Icon(Icons.open_in_new, size: 18),
+              onTap: () => launchUrl(
+                Uri.parse('https://vishaljain666222-hash.github.io/screen-reader-net/delete-account.html'),
+                mode: LaunchMode.externalApplication,
+              ),
+            ),
             const SizedBox(height: 16),
             Text('Version $_version', style: Theme.of(context).textTheme.bodySmall),
             const SizedBox(height: 12),

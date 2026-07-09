@@ -88,4 +88,11 @@ class DemandTrackingService {
     final requests = await loadNotifyMeRequests();
     return requests.any((r) => r.courseId == courseId);
   }
+
+  /// Clears all buy-now/notify-me history — used when a user deletes their account.
+  Future<void> clearAll() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove(_buyNowLogKey);
+    await prefs.remove(_notifyMeKey);
+  }
 }
