@@ -65,6 +65,21 @@ jobs:
           sed -i 's/flutter\.targetSdkVersion/36/' "$GRADLE_FILE"
           grep -n "compileSdk\|targetSdk" "$GRADLE_FILE"
 
+      - name: Add ProGuard rules for read_pdf_text's optional dependencies
+        run: |
+          mkdir -p android/app
+          cat >> android/app/proguard-rules.pro <<'EOF'
+          # PdfBox-Android (used by read_pdf_text) references several optional,
+          # format-specific decoder classes that aren't bundled by default.
+          # R8 fails release builds unless told to ignore these.
+          -dontwarn com.gemalto.jp2.**
+          -dontwarn com.tom_roush.**
+          -dontwarn org.bouncycastle.**
+          -dontwarn org.osgi.**
+          EOF
+          echo "--- proguard-rules.pro ---"
+          cat android/app/proguard-rules.pro
+
       - name: Decode signing keystore
         env:
           KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
